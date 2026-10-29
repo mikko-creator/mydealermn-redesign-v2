@@ -61,7 +61,7 @@ export function photo(ctx, id, opts = {}) {
 export const slugify = (s) => String(s).toLowerCase().replace(/&[a-z]+;/g, '').replace(/<[^>]+>/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export const stripTags = (s) => String(s ?? '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
-// ---------- ornament SVG helpers (v2 "Midnight Mesa"; main session owns these) ----------
+// ---------- ornament SVG helpers (v2 "Lake Country"; main session owns these; v2 names kept) ----------
 // v1's helper names are kept (the templates call them); they now draw the mystical-western ornament set. Each returns
 // an inline <svg class="sk ..." aria-hidden="true">; stroked paths carry pathLength="1" + class "sk-p", and an svg with
 // data-draw draws them on when site.js marks it .is-in (motion.css). Colour = currentColor (sketch.css sets it).
@@ -69,19 +69,19 @@ export const stripTags = (s) => String(s ?? '').replace(/<[^>]+>/g, '').replace(
 // it; now a soft starlight glow, user-space region so a single straight line is never clipped), #or-foil (gold foil
 // gradient, for FILLED shapes only: an objectBoundingBox gradient does not paint on a perfectly straight stroke),
 // #or-shoot (shooting-star tail), symbols #or-star4 (four-point sparkle) and #or-star8 (eight-point spur rowel).
-//   skUnderline({ cls, hover })   double-rule flourish under an accent word; hover: true draws only while the
+//   skUnderline({ cls, hover })   a double wave under an accent word; hover: true draws only while the
 //                                 parent .sk-hover is hovered or focused
-//   skCircle({ cls })             a lasso: rope loop + trailing end, around a word or an object (.sk-circled)
-//   skArrow(dir, { cls })         a fletched arrow; dir: right | left | down | up | down-right | down-left
+//   skCircle({ cls })             ripple rings around a word or an object (.sk-circled)
+//   skArrow(dir, { cls })         a drawn arrow; dir: right | left | down | up | down-right | down-left
 //   skFrame({ cls })              four engraved corner brackets inside a .sk-frame
 //   skPath(d, { vb, cls, sw })    any path(s), drawn on
 //   orStar({ cls, kind, foil })   filled four-point sparkle (kind '4') or eight-point spur rowel ('8')
-//   orRule({ cls })               ornamental divider: rule, diamond, rowel, diamond, rule (drawn on)
+//   orRule({ cls })               divider: rule, ripples, the North Star, ripples, rule (drawn on)
 //   orMoon({ cls })               crescent moon (filled; rotate it with CSS for variety)
-//   orRowel({ cls })              large spur-rowel / star-chart wheel (thin outlines) for slow rotation behind things
+//   orRowel({ cls })              compass rose ring (thin outlines, no letters) for slow rotation behind things
 //   orConstellation(points, { cls, links, vb })  stars at [x, y] joined by drawn lines (links: [[i, j], ...])
-//   orMesa({ cls })               desert skyline: far mesas (.or-mesa__far) + near ridge with saguaros (.or-mesa__near)
-//   orCactus({ cls })             one saguaro silhouette
+//   orMesa({ cls })               lake shoreline: far hills (.or-mesa__far), pine tree line (.or-mesa__near), ripples
+//   orCactus({ cls })             one pine silhouette
 //   orSky({ cls, n, seed, shoot }) twinkling star layer that covers its positioned parent (for a .band__clip)
 const skSvg = (vb, inner, cls, { par = 'none', rough = false, draw = true } = {}) =>
   `<svg class="sk ${cls}" viewBox="${vb}" preserveAspectRatio="${par}" aria-hidden="true" focusable="false"${draw ? ' data-draw' : ''}>${rough ? `<g filter="url(#sk-rough)">${inner}</g>` : inner}</svg>`;
@@ -105,19 +105,18 @@ export function skDefs() {
     + `</defs></svg>`;
 }
 export function skUnderline({ cls = '', hover = false } = {}) {
-  return skSvg('0 0 200 20', skP('M4 11C50 6 150 6 196 11') + skP('M34 15.5C80 12.5 120 12.5 166 15.5', ' style="--d:.4s" opacity="0.7"'), `sk-underline${hover ? ' sk-underline--hover' : ''} ${cls}`.trim());
+  return skSvg('0 0 200 20', skP('M4 10C20 4 36 4 52 10S84 16 100 10S132 4 148 10S180 16 196 10') + skP('M40 16C56 12.5 72 12.5 88 16S120 19.5 136 16S152 12.5 160 15', ' style="--d:.4s" opacity="0.7"'), `sk-underline${hover ? ' sk-underline--hover' : ''} ${cls}`.trim());
 }
 export function skCircle({ cls = '' } = {}) {
   return skSvg('0 0 200 100',
-    skP('M120 9C62 2 11 19 10 50C9 82 64 96 117 92C168 88 195 68 190 41C185 16 148 5 90 10')
-    + skP('M114 14C64 9 18 25 17 50C17 77 66 89 115 86C160 82 185 64 182 42', ' style="--d:.25s" opacity="0.55"')
-    + skP('M90 10C70 13 54 5 40-4', ' style="--d:1.1s"'), `sk-circle ${cls}`.trim());
+    skP('M100 10C152 10 190 28 190 50C190 72 152 90 100 90C48 90 10 72 10 50C10 28 48 10 100 10')
+    + skP('M100 2C160 2 198 25 198 50', ' style="--d:.35s" opacity="0.55"')
+    + skP('M100 98C40 98 2 75 2 50', ' style="--d:.55s" opacity="0.55"'), `sk-circle ${cls}`.trim());
 }
 export function skArrow(dir = 'right', { cls = '' } = {}) {
   return skSvg('0 0 120 60',
-    skP('M14 42C40 28 74 21 109 22')
-    + skP('M95 13L111 22L96 31', ' style="--d:.9s"')
-    + skP('M14 42L7 33M14 42L5 46M21 38.6L14 29.6M21 38.6L12 42.6M28 35.3L21 26.3M28 35.3L19 39.3', ' style="--d:1.1s"'),
+    skP('M12 40C40 26 74 20 108 22')
+    + skP('M94 12L110 22L95 32', ' style="--d:.9s"'),
     `sk-arrow sk-arrow--${dir} ${cls}`.trim(), { par: 'xMidYMid meet' });
 }
 export function skFrame({ cls = '' } = {}) {
@@ -133,22 +132,20 @@ export function orStar({ cls = '', kind = '4', foil = false } = {}) {
 }
 export function orRule({ cls = '' } = {}) {
   return `<svg class="sk or-rule${cls ? ' ' + cls : ''}" viewBox="0 0 240 24" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" data-draw>`
-    + skP('M92 12H14') + skP('M148 12H226')
-    + skP('M96 12L100 8L104 12L100 16ZM136 12L140 8L144 12L140 16Z', ' style="--d:.55s"')
-    + `<g class="or-rule__star"><use href="#or-star8" x="110" y="2" width="20" height="20"/></g><circle class="or-rule__dot" cx="9" cy="12" r="1.8"/><circle class="or-rule__dot" cx="231" cy="12" r="1.8"/></svg>`;
+    + skP('M98 12H14') + skP('M142 12H226')
+    + skP('M60 17C66 15 72 15 78 17M162 17C168 15 174 15 180 17', ' style="--d:.55s" opacity="0.7"')
+    + `<g class="or-rule__star"><use href="#or-star4" x="110" y="2" width="20" height="20"/></g><circle class="or-rule__dot" cx="9" cy="12" r="1.8"/><circle class="or-rule__dot" cx="231" cy="12" r="1.8"/></svg>`;
 }
 export function orMoon({ cls = '' } = {}) {
   return `<svg class="or-moon${cls ? ' ' + cls : ''}" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M43.3 10.6A40 40 0 1 0 85.1 69.2A36 36 0 0 1 43.3 10.6Z"/></svg>`;
 }
 export function orRowel({ cls = '' } = {}) {
+  // a compass rose (the North Star State): rings, 72 ticks, a long four-point star over a shorter one, no letters
   const c = 200;
   let ticks = '';
   for (let i = 0; i < 72; i++) { const a = (i * Math.PI) / 36; const r2 = i % 6 === 0 ? 166 : 177; ticks += `M${fx(c + 188 * Math.cos(a))} ${fx(c + 188 * Math.sin(a))}L${fx(c + r2 * Math.cos(a))} ${fx(c + r2 * Math.sin(a))}`; }
-  let star = '';
-  for (let k = 0; k < 16; k++) { const a = (k * Math.PI) / 8 - Math.PI / 2; const r = k % 2 ? 52 : 142; star += (k ? 'L' : 'M') + fx(c + r * Math.cos(a)) + ' ' + fx(c + r * Math.sin(a)); }
-  let dots = '';
-  for (let i = 0; i < 12; i++) { const a = (i * Math.PI) / 6 + Math.PI / 12; dots += `<circle cx="${fx(c + 158 * Math.cos(a))}" cy="${fx(c + 158 * Math.sin(a))}" r="2.2"/>`; }
-  return `<svg class="or-rowel${cls ? ' ' + cls : ''}" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="200" cy="200" r="196"/><circle cx="200" cy="200" r="188"/><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="40"/><circle cx="200" cy="200" r="12"/><path d="${ticks}"/><path d="${star}Z"/></g><g fill="currentColor">${dots}</g></svg>`;
+  const rose = (R, r, off) => { let d = ''; for (let k = 0; k < 8; k++) { const a = (k * Math.PI) / 4 - Math.PI / 2 + off; const rr = k % 2 ? r : R; d += (k ? 'L' : 'M') + fx(c + rr * Math.cos(a)) + ' ' + fx(c + rr * Math.sin(a)); } return d + 'Z'; };
+  return `<svg class="or-rowel${cls ? ' ' + cls : ''}" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="200" cy="200" r="196"/><circle cx="200" cy="200" r="188"/><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="16"/><path d="${ticks}"/><path d="${rose(142, 30, 0)}"/><path d="${rose(96, 22, Math.PI / 4)}"/></g><path fill="currentColor" d="M200 58L212 186L200 200L188 186Z"/></svg>`;
 }
 export function orConstellation(points, { cls = '', links = null, vb = '0 0 400 200' } = {}) {
   const pairs = links || points.slice(1).map((_, i) => [i, i + 1]);
@@ -157,13 +154,23 @@ export function orConstellation(points, { cls = '', links = null, vb = '0 0 400 
   return `<svg class="sk or-con${cls ? ' ' + cls : ''}" viewBox="${vb}" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" data-draw>${lines}${stars}</svg>`;
 }
 export function orMesa({ cls = '' } = {}) {
-  const far = 'M0 150L60 148L110 120L190 118L215 140L300 142L340 96L470 92L500 132L620 136L690 110L760 108L790 128L900 130L960 84L1120 80L1150 120L1230 124L1290 104L1370 102L1400 126L1500 128L1560 112L1600 114V220H0Z';
-  const near = 'M0 186C120 178 220 170 330 176S560 192 700 184S940 168 1080 176S1360 194 1600 180V220H0Z';
-  const cacti = 'M262 178V126M262 152H248V136M262 144H276V122M1182 178V118M1182 150H1166V130M1182 138H1197V112M1436 184V146M1436 166H1424V152M1436 160H1448V144';
-  return `<svg class="or-mesa${cls ? ' ' + cls : ''}" viewBox="0 0 1600 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path class="or-mesa__far" d="${far}"/><path class="or-mesa__near" d="${near}"/><path class="or-mesa__cacti" d="${cacti}" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  // lake shoreline: rounded far hills (.or-mesa__far), a pine tree line on the near shore (.or-mesa__near) and light
+  // ripple strokes on the water in front (.or-mesa__cacti keeps its v2 class name)
+  const far = 'M0 150C80 128 160 120 240 132S400 150 480 128S640 104 740 120S900 146 1000 126S1180 100 1280 118S1460 142 1600 124V220H0Z';
+  const r = prng(17);
+  let near = 'M0 220V192';
+  for (let x = 0; x < 1600;) {
+    const w = 14 + r() * 22, h = 18 + r() * 46, base = 190 + r() * 4, cx = x + w / 2;
+    near += `L${fx(x)} ${fx(base)}L${fx(cx - w * 0.28)} ${fx(base - h * 0.45)}L${fx(cx - w * 0.36)} ${fx(base - h * 0.45)}L${fx(cx)} ${fx(base - h)}L${fx(cx + w * 0.36)} ${fx(base - h * 0.45)}L${fx(cx + w * 0.28)} ${fx(base - h * 0.45)}L${fx(x + w)} ${fx(base)}`;
+    x += w * (0.7 + r() * 0.5) + (r() < 0.12 ? 30 + r() * 60 : 0);
+  }
+  near += 'L1600 192V220Z';
+  const water = 'M90 205H250M330 212H420M600 207H780M900 214H990M1120 206H1260M1380 213H1500';
+  return `<svg class="or-mesa${cls ? ' ' + cls : ''}" viewBox="0 0 1600 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path class="or-mesa__far" d="${far}"/><path class="or-mesa__near" d="${near}"/><path class="or-mesa__cacti" d="${water}" fill="none" stroke-width="2" stroke-linecap="round"/></svg>`;
 }
 export function orCactus({ cls = '' } = {}) {
-  return `<svg class="or-cactus${cls ? ' ' + cls : ''}" viewBox="0 0 60 150" aria-hidden="true" focusable="false"><path d="M30 144V16M30 92H13V58M30 74H47V38" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  // one pine (kept under the v2 name)
+  return `<svg class="or-cactus${cls ? ' ' + cls : ''}" viewBox="0 0 60 150" aria-hidden="true" focusable="false"><path fill="currentColor" d="M30 4L44 40H36L50 74H40L56 112H34V146H26V112H4L20 74H10L24 40H16Z"/></svg>`;
 }
 export function orSky({ cls = '', n = 46, seed = 7, shoot = false } = {}) {
   const r = prng(seed);

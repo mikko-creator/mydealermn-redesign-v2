@@ -177,12 +177,12 @@ export function page({ ctx, path, title, description, canonical, og = {}, jsonld
 <meta name="description" content="${escA(description)}">
 ${canonical ? `<link rel="canonical" href="${escA(canonical)}">` : ''}
 ${Object.entries(og || {}).map(([k, v]) => `<meta property="${escA(k)}" content="${escA(v)}">`).join('\n')}
-<meta name="theme-color" content="#0d0c14">
+<meta name="theme-color" content="#0a1620">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/cinzel-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bitter-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jost-normal.woff2" as="font" type="font/woff2" crossorigin>
 ${pre}
 ${css}

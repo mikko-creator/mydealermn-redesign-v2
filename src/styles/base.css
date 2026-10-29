@@ -20,12 +20,12 @@ body {
 img, video, svg, picture { max-width: 100%; }
 img, video, picture { display: block; height: auto; }
 h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
-/* Cinzel is an engraved roman: its lower case are small capitals, so headings read as inscriptions */
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; letter-spacing: 0.015em; text-wrap: balance; }
+/* Bitter is a sturdy slab serif: headings read like lake-country signage */
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance; }
 h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); line-height: 1.22; letter-spacing: 0.02em; }
-h4 { font-size: 1.05rem; letter-spacing: 0.03em; }
+h3 { font-size: var(--fs-h3); line-height: 1.22; letter-spacing: 0; }
+h4 { font-size: 1.05rem; letter-spacing: 0.005em; }
 p { text-wrap: pretty; }
 ul, ol { margin: 0; padding: 0; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }

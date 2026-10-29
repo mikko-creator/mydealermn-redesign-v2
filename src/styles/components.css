@@ -1,6 +1,6 @@
-/* components.css - v2 "Midnight Mesa" component contract (main session defines; every lane uses, nobody edits).
+/* components.css - v2 "Lake Country" component contract (main session defines; every lane uses, nobody edits).
    Layout .wrap .band .band__clip · grounds .band--night (night sky + star field) .band--paper (parchment)
-   .band--dusk (desert twilight) · surfaces .glass (smoked glass: gold hairline + inner tarot rule) .glass--tarot
+   .band--dusk (sunset on the lake) · surfaces .glass (smoked glass: gold hairline + inner tarot rule) .glass--tarot
    (+ corner stars) .card · actions .btn · type .kicker .display .lede .prose · .chip .crumbs .img-slot .protrude ·
    shapes .arch .arch-frame. Ornaments (.sk-*, .or-*) live in sketch.css, motion hooks in motion.css.
    Pseudo-elements owned here: .band ::before/::after, .glass ::after, .glass--tarot ::before, .arch-frame ::before.
@@ -29,19 +29,21 @@
   --band-accent: var(--gold);
   color: var(--text-on-ink);
 }
+/* night over the lake: a faint northern-lights glow at the top, deep lake blue below, the North Star field */
 .band--night {
   background-color: var(--ink);
   background-image:
-    radial-gradient(62% 58% at 10% 0%, rgba(61, 49, 96, 0.58), transparent 70%),
-    radial-gradient(58% 52% at 92% 104%, rgba(200, 105, 63, 0.17), transparent 72%),
-    linear-gradient(180deg, #0d0c14 0%, #12101c 62%, #16131f 100%);
+    radial-gradient(48% 42% at 18% -6%, rgba(70, 199, 155, 0.2), transparent 70%),
+    radial-gradient(44% 40% at 62% -10%, rgba(91, 184, 196, 0.16), transparent 70%),
+    radial-gradient(60% 50% at 92% 106%, rgba(43, 111, 147, 0.28), transparent 72%),
+    linear-gradient(180deg, #0a1620 0%, #0d1d29 60%, #102433 100%);
 }
-/* desert twilight: night at the top, violet in the middle, a clay glow on the horizon */
+/* sunset on the lake: night at the top, lake blue in the middle, a warm coral glow on the water line */
 .band--dusk {
   background-color: var(--dusk);
   background-image:
-    radial-gradient(75% 62% at 50% 118%, rgba(200, 105, 63, 0.58), transparent 70%),
-    linear-gradient(180deg, #0d0c14 0%, #1c172e 36%, #30264a 70%, #45304a 100%);
+    radial-gradient(75% 60% at 50% 118%, rgba(224, 122, 95, 0.5), transparent 70%),
+    linear-gradient(180deg, #0a1620 0%, #10283a 36%, #1d4a66 70%, #4a4652 100%);
 }
 .band--night::before, .band--dusk::before {
   content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
@@ -56,26 +58,26 @@
   mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.6) 45%, transparent 78%);
 }
 
-/* parchment: warm vignette, a faint clay and sage bloom, a spur-rowel watermark off the top corner, paper grain */
+/* wool and birch: warm cream, a soft vignette, a lake-blue and sage bloom, a lake depth-chart watermark, grain */
 .band--paper {
   --band-text: var(--text-on-paper);
   --band-muted: var(--muted-on-paper);
   --band-line: var(--line-paper);
-  --band-accent: var(--gold-ink);
+  --band-accent: var(--lake-2);
   color: var(--text-on-paper);
   background-color: var(--paper);
   background-image:
-    radial-gradient(125% 95% at 50% 42%, transparent 56%, rgba(122, 87, 20, 0.13) 100%),
-    radial-gradient(46% 56% at 100% 0%, rgba(200, 105, 63, 0.1), transparent 70%),
-    radial-gradient(42% 52% at 0% 100%, rgba(159, 176, 122, 0.15), transparent 70%);
+    radial-gradient(125% 95% at 50% 42%, transparent 56%, rgba(29, 74, 102, 0.1) 100%),
+    radial-gradient(46% 56% at 100% 0%, rgba(91, 184, 196, 0.12), transparent 70%),
+    radial-gradient(42% 52% at 0% 100%, rgba(159, 176, 122, 0.16), transparent 70%);
 }
 .band--paper::before { /* a background image, so the watermark is clipped to the band and never bleeds over its neighbour */
-  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none; opacity: 0.09;
-  background: var(--rowel) no-repeat right clamp(-150px, -9vw, -60px) top clamp(-150px, -9vw, -60px) / clamp(260px, 30vw, 460px) auto;
+  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none; opacity: 0.16;
+  background: var(--rowel) no-repeat right clamp(-170px, -10vw, -70px) top clamp(-150px, -9vw, -60px) / clamp(320px, 36vw, 560px) auto;
 }
 .band--paper::after {
   content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none; opacity: 0.85; mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.36 0 0 0 0 0.22 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.36 0 0 0 0 0.4 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .band--cream { background-color: var(--cream); }
 .band--pine { background-color: var(--pine); }
@@ -96,32 +98,32 @@
   -webkit-mask: var(--star4) center / contain no-repeat; mask: var(--star4) center / contain no-repeat;
 }
 .display {
-  font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h1); line-height: 1.04; letter-spacing: 0.02em;
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h1); line-height: 1.04; letter-spacing: -0.012em;
   text-wrap: balance;
 }
 .display--hero { font-size: var(--fs-hero); }
-/* ONE accent word per heading: Rye wood type, gold foil on night, desert clay on parchment. text-fill-color keeps
+/* ONE accent word per heading: the script accent, gold foil on night, sunset coral on parchment. text-fill-color keeps
    `color` (currentColor) gold for any svg ornament inside the accent; use filter: drop-shadow, never text-shadow, on
    a foil accent (a text-shadow paints over the clipped gradient). */
 .display em, h1 em, h2 em, h3 em, .display .scribble, h1 .scribble, h2 .scribble, .accent {
-  font-family: var(--font-western); font-style: normal; font-weight: 400; letter-spacing: 0.01em;
+  font-family: var(--font-western); font-style: normal; font-weight: 400; letter-spacing: 0.005em; font-size: 1.12em; line-height: 0.9; padding-right: 0.06em;
   color: var(--gold);
   background: var(--foil-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .band--paper .display em, .band--paper h1 em, .band--paper h2 em, .band--paper h3 em, .band--paper .display .scribble,
 .band--paper h1 .scribble, .band--paper h2 .scribble, .band--paper .accent, .glass--milk .accent, .card .accent {
-  background: none; -webkit-text-fill-color: currentColor; color: var(--clay-2);
+  background: none; -webkit-text-fill-color: currentColor; color: var(--lake-2);
 }
 .band--night .card .accent, .band--dusk .card .accent { -webkit-text-fill-color: transparent; background: var(--foil-text); -webkit-background-clip: text; background-clip: text; color: var(--gold); }
 .lede {
-  font-family: var(--font-serif); font-weight: 500; font-size: var(--fs-lede); line-height: 1.42;
+  font-family: var(--font-serif); font-weight: 400; font-size: var(--fs-lede); line-height: 1.55;
   color: var(--band-muted, var(--muted-on-paper)); max-width: 60ch;
 }
-.band--night .lede, .band--dusk .lede, .glass .lede { color: rgba(243, 234, 216, 0.88); }
-.band--paper .lede, .glass--milk .lede { color: #3f3729; }
+.band--night .lede, .band--dusk .lede, .glass .lede { color: rgba(238, 243, 242, 0.88); }
+.band--paper .lede, .glass--milk .lede { color: #33424a; }
 .muted { color: var(--band-muted, var(--muted-on-paper)); }
 .ui-label { font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
-.numeral { font-family: var(--font-western); font-weight: 400; line-height: 1; letter-spacing: 0.02em; color: var(--gold); } /* v2: tarot numerals I II III, big figures */
+.numeral { font-family: var(--font-num); font-weight: 800; line-height: 1; letter-spacing: 0.02em; color: var(--gold); } /* v2: tarot numerals I II III, big figures */
 
 /* ---------- glass (mid plane): smoked glass, gold hairline, inner tarot rule ---------- */
 /* set --glass-r (not border-radius) to change a glass element's corners: the inner rule follows it */
@@ -149,7 +151,7 @@
 }
 .glass--night, .band--paper .glass--night {
   color: var(--text-on-ink); background-color: var(--glass-ink); border-color: var(--glass-ink-border);
-  box-shadow: inset 0 1px 0 var(--glass-ink-hi), var(--shadow-2); --glass-rule: rgba(226, 182, 90, 0.26);
+  box-shadow: inset 0 1px 0 var(--glass-ink-hi), var(--shadow-2); --glass-rule: rgba(216, 238, 245, 0.2);
 }
 /* tarot card: four gold stars on the inner rule's corners */
 .glass--tarot::before {
@@ -160,13 +162,13 @@
 }
 /* lift: rises, the edge warms to gold and a foil sheen crosses the glass */
 .glass--lift {
-  background-image: linear-gradient(112deg, transparent 36%, rgba(246, 220, 156, 0.16) 47%, rgba(255, 255, 255, 0.06) 50%, transparent 60%);
+  background-image: linear-gradient(112deg, transparent 36%, rgba(216, 238, 245, 0.18) 47%, rgba(255, 255, 255, 0.08) 50%, transparent 60%);
   background-size: 260% 100%; background-position: 135% 0; background-repeat: no-repeat;
   transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out), border-color var(--dur-2), background-position 1.1s var(--ease-out);
 }
 .glass--lift:hover, .glass--lift:focus-within {
-  transform: translateY(-6px); border-color: rgba(226, 182, 90, 0.66); background-position: -35% 0;
-  box-shadow: inset 0 1px 0 var(--glass-ink-hi), var(--shadow-float), 0 0 42px rgba(226, 182, 90, 0.16);
+  transform: translateY(-6px); border-color: rgba(141, 207, 222, 0.7); background-position: -35% 0;
+  box-shadow: inset 0 1px 0 var(--glass-ink-hi), var(--shadow-float), 0 0 42px rgba(91, 184, 196, 0.18);
 }
 
 /* ---------- cards (plain surface, for reading) ---------- */
@@ -179,7 +181,7 @@
 }
 .band--night .card:not(.glass), .band--dusk .card:not(.glass) { background: var(--ink-2); color: var(--text-on-ink); border-color: var(--line-ink); box-shadow: none; }
 a.card { text-decoration: none; transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out), border-color var(--dur-2); }
-a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); border-color: rgba(184, 135, 47, 0.55); }
+a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); border-color: rgba(43, 111, 147, 0.5); }
 .card__media { margin: calc(-1 * clamp(20px, 2.4vw, 30px)) calc(-1 * clamp(20px, 2.4vw, 30px)) 18px; border-radius: var(--r-md) var(--r-md) 0 0; overflow: hidden; aspect-ratio: 3 / 2; }
 .card__media img, .card__media .img-slot { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-3) var(--ease-out); }
 .card:hover .card__media img { transform: scale(1.04); }
@@ -206,10 +208,10 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); border-
 .btn--ghost { background: transparent; color: inherit; border-color: color-mix(in srgb, currentColor 45%, transparent); }
 .btn--ghost:hover { border-color: currentColor; background: color-mix(in srgb, currentColor 8%, transparent); }
 .btn--glass {
-  background: rgba(24, 20, 36, 0.42); color: var(--text-on-ink); border-color: rgba(226, 182, 90, 0.45);
+  background: rgba(12, 30, 42, 0.42); color: var(--text-on-ink); border-color: rgba(216, 238, 245, 0.42);
   -webkit-backdrop-filter: blur(10px) saturate(150%); backdrop-filter: blur(10px) saturate(150%);
 }
-.btn--glass:hover { background: rgba(40, 32, 58, 0.6); border-color: var(--gold); }
+.btn--glass:hover { background: rgba(20, 50, 68, 0.62); border-color: var(--ice); }
 .band--paper .btn--glass { background: rgba(251, 243, 228, 0.66); color: var(--ink); border-color: var(--glass-milk-border); }
 .btn--sm { min-height: 40px; padding: 0 16px; font-size: 0.8125rem; }
 .btn .ico, .btn svg { width: 1.05em; height: 1.05em; flex: none; }
@@ -228,9 +230,9 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); border-
   color: inherit; text-decoration: none;
   transition: border-color var(--dur-1), background-color var(--dur-1), transform var(--dur-1), color var(--dur-1);
 }
-.band--night .chip, .band--dusk .chip, .glass .chip { border-color: rgba(226, 182, 90, 0.3); }
+.band--night .chip, .band--dusk .chip, .glass .chip { border-color: rgba(216, 238, 245, 0.3); }
 a.chip:hover { border-color: currentColor; transform: translateY(-1px); }
-.band--night a.chip:hover, .band--dusk a.chip:hover { color: var(--gold-hi); border-color: var(--gold); }
+.band--night a.chip:hover, .band--dusk a.chip:hover { color: var(--ice); border-color: var(--ice); }
 .chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ---------- prose (long reading: plain ground, no pattern) ---------- */
@@ -241,11 +243,11 @@ a.chip:hover { border-color: currentColor; transform: translateY(-1px); }
 .prose h2 + *, .prose h3 + * { margin-top: 0.6em; }
 .prose ul, .prose ol { padding-left: 1.3em; }
 .prose li + li { margin-top: 0.35em; }
-.prose li::marker { color: var(--gold-2); }
-.prose a { color: var(--pine); font-weight: 500; }
+.prose li::marker { color: var(--lake); }
+.prose a { color: var(--lake-2); font-weight: 500; }
 .band--night .prose a, .band--dusk .prose a { color: var(--gold); }
 .prose blockquote {
-  font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 1.4em; line-height: 1.35;
+  font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 1.3em; line-height: 1.45;
   padding-left: 1em; border-left: 2px solid var(--gold);
 }
 .prose img { border-radius: var(--r-md); }
@@ -270,7 +272,7 @@ a.chip:hover { border-color: currentColor; transform: translateY(-1px); }
 .img-slot {
   position: relative; display: block; width: 100%; aspect-ratio: 3 / 2; overflow: hidden;
   background-color: var(--ink-2);
-  background-image: var(--stars-a), radial-gradient(60% 60% at 30% 30%, rgba(61, 49, 96, 0.55), transparent 70%);
+  background-image: var(--stars-a), radial-gradient(60% 60% at 30% 30%, rgba(43, 111, 147, 0.5), transparent 70%);
   border-radius: inherit;
 }
 .img-slot::after {
@@ -286,12 +288,12 @@ a.chip:hover { border-color: currentColor; transform: translateY(-1px); }
 .arch { position: relative; border-radius: var(--r-arch); overflow: hidden; isolation: isolate; }
 .arch > img, .arch > picture, .arch > picture > img, .arch > video, .arch > .img-slot { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
 /* a framed arch: a gold double rule around the opening (wrap an .arch, or put the media straight in) */
-.arch-frame { position: relative; padding: var(--arch-pad, 10px); border: 1px solid var(--arch-line, rgba(226, 182, 90, 0.62)); border-radius: var(--r-arch); }
+.arch-frame { position: relative; padding: var(--arch-pad, 10px); border: 1px solid var(--arch-line, rgba(216, 238, 245, 0.55)); border-radius: var(--r-arch); }
 .arch-frame::before {
   content: ""; position: absolute; inset: 4px; pointer-events: none; border-radius: inherit;
-  border: 1px solid var(--arch-line, rgba(226, 182, 90, 0.62)); opacity: 0.55;
+  border: 1px solid var(--arch-line, rgba(216, 238, 245, 0.55)); opacity: 0.55;
 }
-.band--paper .arch-frame { --arch-line: rgba(122, 87, 20, 0.5); }
+.band--paper .arch-frame { --arch-line: rgba(29, 74, 102, 0.42); }
 .arch-frame > .arch, .arch-frame > img, .arch-frame > picture img { border-radius: var(--r-arch); }
 
 /* ---------- small helpers ---------- */

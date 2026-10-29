@@ -24,13 +24,13 @@ Version 2 has the same site architecture and the same content as
   - a Minnesota law summary taken from My Dealer's own FAQ;
   - a blog hub of My Dealer's guides;
   - a site map.
-- **"Midnight Mesa" design (version 2).** Glassmorphism combined with a mystical western style, built on My Dealer's
-  own brand: the dealer character, ink, cream, gold and sage. It includes:
-  - night skies full of stars, and parchment;
-  - desert clay and dusk violet;
-  - engraved Cinzel capitals with one Rye wood-type accent per heading;
-  - arched portals and gold-rimmed smoked glass;
-  - lassos, fletched arrows, spur rowels, constellations, crescent moons and a mesa skyline.
+- **"Lake Country" design (version 2).** Glassmorphism combined with Minnesota's Land of 10,000 Lakes, built on My
+  Dealer's own brand: the dealer character, ink, cream, gold and sage. It includes:
+  - night over the lake with a faint northern-lights glow and the North Star;
+  - wool cream and birch, lake blues, pine and a warm sunset on the water;
+  - a slab-serif headline with one word in retro postcard script;
+  - arched windows and frosted, ice-clear glass;
+  - a pine shoreline over the water, ripples, constellations and a compass rose.
 
   There are three depth layers, with the dealer character and photos breaking out of their sections. Ornaments draw
   themselves as you scroll, stars twinkle, and there are reveal animations and hover states. See

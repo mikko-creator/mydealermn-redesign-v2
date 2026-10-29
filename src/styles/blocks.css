@@ -1,13 +1,13 @@
-/* blocks.css - captured content blocks (PAGES lane, b- prefix), v2 "Midnight Mesa". Colours follow the band they sit
+/* blocks.css - captured content blocks (PAGES lane, b- prefix), v2 "Lake Country". Colours follow the band they sit
    in through the foundation's --band-text / --band-muted / --band-line / --band-accent. Tarot accordions with a star
-   toggle, numbered tarot step cards with Rye numerals, arched-top glass link cards, cabinet-card galleries, engraved
+   toggle, numbered tarot step cards with slab numerals, arched-top glass link cards, cabinet-card galleries, engraved
    table heads, a sepia / gold terpene chart. .b-flow is a spacing helper any lane can put on renderBlocks() output. */
-:root { --b-accent-text: var(--gold-ink); --b-surface: rgba(251, 243, 228, 0.74); --b-surface-2: rgba(122, 87, 20, 0.05); --b-rule: rgba(122, 87, 20, 0.34); }
-.band--night, .band--dusk, .glass--night { --b-accent-text: var(--gold); --b-surface: rgba(24, 20, 36, 0.55); --b-surface-2: rgba(255, 246, 226, 0.045); --b-rule: rgba(226, 182, 90, 0.34); }
+:root { --b-accent-text: var(--gold-ink); --b-surface: rgba(251, 248, 241, 0.74); --b-surface-2: rgba(29, 74, 102, 0.05); --b-rule: rgba(29, 74, 102, 0.34); }
+.band--night, .band--dusk, .glass--night { --b-accent-text: var(--gold); --b-surface: rgba(12, 30, 42, 0.55); --b-surface-2: rgba(255, 246, 226, 0.045); --b-rule: rgba(226, 182, 90, 0.34); }
 
 .b-flow > * + *, .b-card > * + *, .b-details__body > * + *, .b-steps__item > * + *, .b-fig__cell > * + *, .b-fig > * + * { margin-top: 0.85rem; }
 
-/* ---------- type: Cinzel engraved capitals for headings ---------- */
+/* ---------- type: Bitter slab headings for headings ---------- */
 .b-h { font-family: var(--font-display); font-weight: 600; letter-spacing: 0.015em; line-height: 1.12; text-wrap: balance; }
 .b-h1 { font-size: clamp(2.05rem, 1.25rem + 2.5vw, 3.5rem); line-height: 1.06; }
 .b-h2 { font-size: clamp(1.65rem, 1.25rem + 1.5vw, 2.6rem); }
@@ -47,15 +47,15 @@
 ul.b-list { list-style: none; padding-left: 1.5em; }
 ul.b-list > li { position: relative; }
 ul.b-list > li::before { content: ""; position: absolute; left: -1.25em; top: 0.5em; width: 0.62em; height: 0.62em; background: var(--band-accent, var(--gold-2)); -webkit-mask: var(--star4) center / contain no-repeat; mask: var(--star4) center / contain no-repeat; }
-ol.b-list li::marker { color: var(--band-accent, var(--gold-2)); font-family: var(--font-western); font-size: 0.95em; }
+ol.b-list li::marker { color: var(--band-accent, var(--gold-2)); font-family: var(--font-num); font-weight: 700; font-size: 0.95em; }
 .b-prices { list-style: none; padding: 0; display: grid; }
 .b-prices li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--b-rule); }
 .b-prices li:last-child { border-bottom: 0; }
 .b-prices__w { font-family: var(--font-ui); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.b-prices__p { font-family: var(--font-western); font-size: 1.4rem; color: var(--b-accent-text); }
+.b-prices__p { font-family: var(--font-num); font-weight: 800; font-size: 1.4rem; color: var(--b-accent-text); }
 .band--paper .b-prices__p, .glass--milk .b-prices__p { color: var(--clay-2); }
 
-/* ---------- steps: numbered tarot cards with Rye numerals ---------- */
+/* ---------- steps: numbered tarot cards with slab numerals ---------- */
 .b-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 214px), 1fr)); gap: 18px; }
 .b-steps__item {
   position: relative; padding: 26px 22px 26px; border-radius: var(--r-md); background: var(--b-surface);
@@ -90,7 +90,7 @@ ol.b-list li::marker { color: var(--band-accent, var(--gold-2)); font-family: va
   position: relative; border-radius: var(--r-md); background: var(--b-surface); border: 1px solid var(--b-rule);
   outline: 1px solid color-mix(in srgb, var(--b-rule) 55%, transparent); outline-offset: -6px;
   -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 1px 2px rgba(13, 12, 20, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 1px 2px rgba(10, 22, 32, 0.06);
   transition: border-color var(--dur-2), box-shadow var(--dur-2), background-color var(--dur-2);
 }
 .band--night .b-details, .band--dusk .b-details { box-shadow: inset 0 1px 0 var(--glass-ink-hi); }
@@ -139,7 +139,7 @@ ol.b-list li::marker { color: var(--band-accent, var(--gold-2)); font-family: va
 .b-linkcard:hover .b-linkcard__media img { transform: scale(1.06); }
 .b-linkcard__body { position: relative; display: grid; gap: 6px; padding: 16px 40px 20px 10px; }
 .b-linkcard__body > span { display: block; line-height: 1.5; }
-.b-linkcard__body > span:first-child { font-family: var(--font-western); font-size: 1.5rem; line-height: 1.05; color: var(--gold); }
+.b-linkcard__body > span:first-child { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; line-height: 1.05; color: var(--gold); }
 .b-linkcard__body > span:nth-last-child(2) { margin-top: 4px; font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
 .b-linkcard .b-sk { position: absolute; right: 12px; top: 18px; width: 20px; height: 20px; color: var(--gold); transition: translate var(--dur-1) var(--ease-out); }
 .b-linkcard:hover .b-sk { translate: 2px -2px; }
@@ -179,7 +179,7 @@ ol.b-list li::marker { color: var(--band-accent, var(--gold-2)); font-family: va
 .b-fig__img { display: block; overflow: hidden; border-radius: 1px; }
 .b-fig__img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform var(--dur-3) var(--ease-out); }
 .b-fig--photo:hover .b-fig__img img { transform: scale(1.04); }
-.b-fig.b-fig--photo > .b-fig__cap { margin-top: 10px; font-family: var(--font-serif); font-style: italic; font-weight: 600; font-size: 1.2rem; line-height: 1.2; color: #3b3326; }
+.b-fig.b-fig--photo > .b-fig__cap { margin-top: 10px; font-family: var(--font-serif); font-style: italic; font-weight: 600; font-size: 1.2rem; line-height: 1.2; color: #2d3b41; }
 .b-fig.b-fig--photo > .b-fig__cap strong { display: block; margin-bottom: 3px; font-family: var(--font-ui); font-style: normal; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-ink); }
 .b-fig--set { padding: clamp(20px, 2.4vw, 30px); border-radius: var(--r-md); background: var(--b-surface); border: 1px solid var(--b-rule); outline: 1px solid color-mix(in srgb, var(--b-rule) 55%, transparent); outline-offset: -6px; }
 .b-fig--set > .b-fig__cap { font-size: 0.95rem; line-height: 1.55; color: var(--band-muted, var(--muted-on-paper)); margin-bottom: 16px; }
@@ -194,13 +194,13 @@ ol.b-list li::marker { color: var(--band-accent, var(--gold-2)); font-family: va
 .band--night .b-icon, .band--dusk .b-icon { color: var(--gold); }
 .b-icon svg { width: 34px; height: 34px; }
 /* the terpene range chart: sepia on parchment, gold lines on night */
-.b-chart { display: block; padding: 16px 14px 10px; border-radius: var(--r-sm); border: 1px solid var(--b-rule); background: rgba(251, 243, 228, 0.6); color: var(--text-on-paper); }
+.b-chart { display: block; padding: 16px 14px 10px; border-radius: var(--r-sm); border: 1px solid var(--b-rule); background: rgba(251, 248, 241, 0.6); color: var(--text-on-paper); }
 .b-chart svg { width: 100%; height: auto; max-width: 640px; font-family: var(--font-ui); overflow: visible; }
-.b-chart svg rect:nth-of-type(1) { fill: rgba(122, 87, 20, 0.08); stroke: rgba(122, 87, 20, 0.55); stroke-width: 1; }
+.b-chart svg rect:nth-of-type(1) { fill: rgba(29, 74, 102, 0.08); stroke: rgba(29, 74, 102, 0.55); stroke-width: 1; }
 .b-chart svg rect:nth-of-type(2) { fill: rgba(184, 135, 47, 0.42); }
-.b-chart svg rect:nth-of-type(3) { fill: #8a5f12; }
-.b-chart svg g { fill: #2f281d; }
-.band--night .b-chart, .band--dusk .b-chart { background: rgba(24, 20, 36, 0.55); color: var(--text-on-ink); }
+.b-chart svg rect:nth-of-type(3) { fill: #1d4a66; }
+.b-chart svg g { fill: #24313a; }
+.band--night .b-chart, .band--dusk .b-chart { background: rgba(12, 30, 42, 0.55); color: var(--text-on-ink); }
 .band--night .b-chart svg rect:nth-of-type(1), .band--dusk .b-chart svg rect:nth-of-type(1) { fill: none; stroke: rgba(226, 182, 90, 0.7); }
 .band--night .b-chart svg rect:nth-of-type(2), .band--dusk .b-chart svg rect:nth-of-type(2) { fill: rgba(226, 182, 90, 0.3); }
 .band--night .b-chart svg rect:nth-of-type(3), .band--dusk .b-chart svg rect:nth-of-type(3) { fill: var(--gold); }
@@ -233,11 +233,11 @@ ol.b-list li::marker { color: var(--band-accent, var(--gold-2)); font-family: va
 }
 
 /* ---------- phones: solid surfaces instead of blur, labels >= 13px, body >= 16px, tighter rhythm ---------- */
-:root { --b-solid: #fbf4e6; }
-.band--night, .band--dusk, .glass--night { --b-solid: #1a1726; }
+:root { --b-solid: #fbf8f1; }
+.band--night, .band--dusk, .glass--night { --b-solid: #0f2230; }
 @media (max-width: 767.98px) {
   .b-details, .b-steps__item { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--b-solid); }
-  .b-linkcard { -webkit-backdrop-filter: none; backdrop-filter: none; background: #1a1726; }
+  .b-linkcard { -webkit-backdrop-filter: none; backdrop-filter: none; background: #0f2230; }
   .b-kicker, .b-chip, .b-table th, .b-linkcard__body > span:nth-last-child(2), .b-dl dt, .b-fig.b-fig--photo > .b-fig__cap strong { font-size: 0.8125rem; }
   .b-fine, .b-warn { font-size: 0.875rem; }
   .b-dl { gap: 10px; }

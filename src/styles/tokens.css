@@ -1,20 +1,22 @@
-/* tokens.css - v2 "Midnight Mesa": glassmorphism x mystical western, on My Dealer's own brand anchors (measured on
-   mydealermn.com: near-black ink, cream, gold #e2b65a, sage #9fb07a). Night skies with star fields, parchment, desert
-   clay and turquoise; Cinzel engraved capitals for headings, Rye wood type for ONE accent word per heading, Cormorant
-   Garamond for ledes and captions, Jost for reading and UI. Token NAMES are kept from v1 (every stylesheet reads
-   them); values are v2's. Tokens new in v2 are marked "v2". The main session owns this file. */
+/* tokens.css - v2 "Lake Country": glassmorphism x Minnesota's Land of 10,000 Lakes, on My Dealer's own brand anchors
+   (measured on mydealermn.com: near-black ink, cream, gold #e2b65a, sage #9fb07a). Night over the lake with northern
+   lights and the North Star, wool and birch, lake blues, pine, sunset coral; Bitter slab headings, Yellowtail script for
+   ONE accent word per heading (a lake-resort postcard), Lora for ledes and captions, Jost for reading and UI. Token NAMES
+   are kept from v1 (every stylesheet reads them); some keep a v2 name for a new role: --clay = sunset coral,
+   --turq = lake teal, --dusk = lake blue night, --font-western = the script accent, --rowel = the lake depth-chart
+   watermark. The main session owns this file. */
 :root {
   /* night + brand anchors */
-  --ink: #0d0c14;              /* the night sky: near-black with a violet cast */
-  --ink-2: #16141f;
-  --ink-3: #211d2e;
-  --pine: #3a2d52;             /* in v2 the deep accent is dusk violet (links and focus on parchment, 10:1) */
-  --pine-2: #4b3b69;
-  --cream: #fbf3e4;            /* bone */
-  --paper: #f1e4cb;            /* parchment */
-  --paper-2: #e6d3b0;
-  --graphite: #5e5444;         /* sepia ink */
-  --pencil: #8a7a5e;
+  --ink: #0a1620;              /* the night sky: near-black with a violet cast */
+  --ink-2: #10212d;
+  --ink-3: #172c3a;
+  --pine: #23453c;             /* in v2 the deep accent is dusk violet (links and focus on parchment, 10:1) */
+  --pine-2: #2f5a4d;
+  --cream: #fbf8f1;            /* bone */
+  --paper: #f1ece1;            /* parchment */
+  --paper-2: #e4dccb;
+  --graphite: #4f5a5e;         /* sepia ink */
+  --pencil: #7b878a;
   --gold: #e2b65a;
   --gold-2: #b8872f;
   --gold-soft: rgba(226, 182, 90, 0.18);
@@ -23,51 +25,51 @@
   --sage-soft: rgba(159, 176, 122, 0.18);
   --gold-hi: #f6dc9c;          /* v2: starlight gold */
   --gold-ink: #7a5714;         /* v2: gold for small text on parchment (5.2:1) */
-  --clay: #c8693f;             /* v2: desert clay */
-  --clay-2: #9b4a2b;           /* v2: clay for type on parchment (4.9:1, large type) */
-  --turq: #62b6a8;             /* v2: turquoise, sparingly */
-  --dusk: #2a2240;             /* v2 */
-  --dusk-2: #3d3160;           /* v2 */
+  --clay: #e07a5f;             /* v2: desert clay */
+  --clay-2: #a8452d;           /* v2: clay for type on parchment (4.9:1, large type) */
+  --turq: #5bb8c4;             /* v2: turquoise, sparingly */
+  --dusk: #12324a;             /* v2 */
+  --dusk-2: #1d4a66;           /* v2 */
   --foil: linear-gradient(118deg, #f6dc9c 0%, #e2b65a 30%, #b8872f 55%, #f0cf86 78%, #c99a3c 100%);   /* v2 */
   --foil-text: linear-gradient(180deg, #f8e3ad 0%, #e9c46f 48%, #c99a3c 100%);                       /* v2 */
 
   /* text */
-  --text-on-ink: #f3ead8;
-  --muted-on-ink: rgba(243, 234, 216, 0.78);
-  --text-on-paper: #1e1a26;
-  --muted-on-paper: #4b4233;
+  --text-on-ink: #eef3f2;
+  --muted-on-ink: rgba(238, 243, 242, 0.78);
+  --text-on-paper: #14232b;
+  --muted-on-paper: #3f4b4f;
 
   /* glass: smoked on night, milk on parchment; a gold hairline edge and an inner "tarot" rule */
   --glass-blur: 16px;
-  --glass-sat: 160%;
-  --glass-ink: rgba(24, 20, 36, 0.52);
-  --glass-ink-border: rgba(226, 182, 90, 0.32);
-  --glass-ink-hi: rgba(255, 236, 200, 0.16);
-  --glass-milk: rgba(251, 243, 228, 0.6);
-  --glass-milk-border: rgba(122, 87, 20, 0.3);
-  --glass-milk-hi: rgba(255, 255, 255, 0.7);
-  --glass-rule: rgba(226, 182, 90, 0.26);        /* v2 */
-  --glass-rule-milk: rgba(122, 87, 20, 0.26);    /* v2 */
+  --glass-sat: 150%;
+  --glass-ink: rgba(12, 30, 42, 0.5);
+  --glass-ink-border: rgba(216, 238, 245, 0.3);
+  --glass-ink-hi: rgba(255, 255, 255, 0.18);
+  --glass-milk: rgba(251, 248, 241, 0.62);
+  --glass-milk-border: rgba(29, 74, 102, 0.22);
+  --glass-milk-hi: rgba(255, 255, 255, 0.75);
+  --glass-rule: rgba(216, 238, 245, 0.2);        /* v2 */
+  --glass-rule-milk: rgba(29, 74, 102, 0.2);    /* v2 */
   --glass-inset: 6px;                             /* v2: inner rule distance */
 
   /* shadows */
-  --shadow-1: 0 1px 2px rgba(13, 12, 20, 0.14), 0 10px 26px rgba(13, 12, 20, 0.14);
-  --shadow-2: 0 2px 6px rgba(13, 12, 20, 0.24), 0 26px 64px rgba(13, 12, 20, 0.36);
+  --shadow-1: 0 1px 2px rgba(10, 22, 32, 0.14), 0 10px 26px rgba(10, 22, 32, 0.14);
+  --shadow-2: 0 2px 6px rgba(10, 22, 32, 0.22), 0 26px 64px rgba(10, 22, 32, 0.34);
   --shadow-float: 0 34px 90px -22px rgba(0, 0, 0, 0.62);
   --glow-gold: 0 0 0 1px rgba(226, 182, 90, 0.4), 0 0 36px rgba(226, 182, 90, 0.22);   /* v2 */
 
   /* type */
-  --font-display: "Cinzel", "Trajan Pro", "Times New Roman", serif;
-  --font-western: "Rye", "Cinzel", Georgia, serif;                       /* v2: one accent word, numerals */
-  --font-serif: "Cormorant Garamond", "Cormorant", Georgia, serif;        /* v2: ledes, quotes, captions */
+  --font-display: "Bitter", "Rockwell", Georgia, serif;
+  --font-western: "Yellowtail", "Brush Script MT", cursive;                       /* v2: one accent word, numerals */
+  --font-serif: "Lora", Georgia, serif;        /* v2: ledes, quotes, captions */
   --font-body: "Jost", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
   --font-ui: "Jost", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
-  --font-hand: "Cormorant Garamond", "Cormorant", Georgia, serif;         /* .sk-note: engraved italic caption */
-  --fs-hero: clamp(2.5rem, 1.6rem + 4.1vw, 5.4rem);
-  --fs-h1: clamp(2.05rem, 1.45rem + 2.7vw, 3.8rem);
-  --fs-h2: clamp(1.65rem, 1.25rem + 1.7vw, 2.75rem);
-  --fs-h3: clamp(1.12rem, 1.02rem + 0.5vw, 1.4rem);
-  --fs-lede: clamp(1.22rem, 1.08rem + 0.5vw, 1.55rem);
+  --font-hand: "Lora", Georgia, serif;         /* .sk-note: engraved italic caption */
+  --fs-hero: clamp(2.6rem, 1.7rem + 4.3vw, 5.6rem);
+  --fs-h1: clamp(2.1rem, 1.5rem + 2.8vw, 3.9rem);
+  --fs-h2: clamp(1.7rem, 1.3rem + 1.8vw, 2.85rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + 0.5vw, 1.45rem);
+  --fs-lede: clamp(1.12rem, 1.02rem + 0.42vw, 1.4rem);
   --fs-body: 1.0625rem;
   --fs-small: 0.875rem;
   --fs-hand: clamp(1.2rem, 1.05rem + 0.6vw, 1.6rem);
@@ -89,8 +91,8 @@
   --r-arch: 999px 999px var(--r-md) var(--r-md);   /* v2: a round-topped arch (the top radii clamp to half the width) */
 
   /* lines and grounds */
-  --line-ink: rgba(226, 182, 90, 0.18);
-  --line-paper: rgba(58, 45, 82, 0.16);
+  --line-ink: rgba(216, 238, 245, 0.16);
+  --line-paper: rgba(29, 74, 102, 0.16);
   --grid-size: 44px;
   --grid-ink: rgba(255, 250, 241, 0.03);
   --grid-paper: rgba(58, 45, 82, 0.05);
@@ -110,6 +112,15 @@
   --z-header: 50;
   --z-mega: 60;
   --z-gate: 90;
+
+  /* Lake Country additions */
+  --lake: #2b6f93;             /* lake blue */
+  --lake-2: #1d4a66;           /* deep lake: type and links on paper (8.9:1) */
+  --ice: #d8eef5;              /* ice and starlight on night */
+  --aurora: #46c79b;           /* northern lights, as glow only */
+  --plaid: #a3352b;            /* buffalo-check red, sparingly */
+  --birch: #f7f4ee;
+  --font-num: "Bitter", "Rockwell", Georgia, serif;  /* numerals (I II III, 01 02) */
 }
 
 /* v2 ornament images (generated by tmp/foundation/stars.mjs; data URIs, so the Pages prefix never touches them):
@@ -121,6 +132,6 @@
   --stars-b: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560'%3E%3Ccircle cx='117.9' cy='84.2' r='1.19' fill='%23fff8ea' opacity='0.69'/%3E%3Ccircle cx='216.8' cy='193.7' r='1.21' fill='%23fff8ea' opacity='0.71'/%3E%3Ccircle cx='138.5' cy='20.1' r='1.39' fill='%23fff8ea' opacity='0.60'/%3E%3Ccircle cx='342.7' cy='414.3' r='1.58' fill='%23fff8ea' opacity='0.77'/%3E%3Ccircle cx='389.7' cy='31.1' r='1.55' fill='%23fff8ea' opacity='0.90'/%3E%3Ccircle cx='422.4' cy='153.6' r='1.34' fill='%23fff8ea' opacity='0.63'/%3E%3Ccircle cx='159.4' cy='48' r='1.04' fill='%23fff8ea' opacity='0.81'/%3E%3Ccircle cx='142.8' cy='194.5' r='1.09' fill='%23fff8ea' opacity='0.71'/%3E%3Ccircle cx='350.1' cy='175' r='1.53' fill='%23fff8ea' opacity='0.86'/%3E%3Ccircle cx='346.9' cy='184' r='1.50' fill='%23fff8ea' opacity='0.79'/%3E%3Ccircle cx='456.9' cy='46' r='1.05' fill='%23fff8ea' opacity='0.87'/%3E%3Cpath transform='translate(162.9 20.3) scale(0.51)' d='M0-10C1-3 3-1 10 0C3 1 1 3 0 10C-1 3-3 1-10 0C-3-1-1-3 0-10Z' fill='%23f6dc9c' opacity='0.84'/%3E%3Cpath transform='translate(115.3 91.9) scale(0.48)' d='M0-10C1-3 3-1 10 0C3 1 1 3 0 10C-1 3-3 1-10 0C-3-1-1-3 0-10Z' fill='%23f6dc9c' opacity='0.79'/%3E%3Cpath transform='translate(140.4 357.5) scale(0.47)' d='M0-10C1-3 3-1 10 0C3 1 1 3 0 10C-1 3-3 1-10 0C-3-1-1-3 0-10Z' fill='%23f6dc9c' opacity='0.77'/%3E%3Cpath transform='translate(412.5 308.7) scale(0.44)' d='M0-10C1-3 3-1 10 0C3 1 1 3 0 10C-1 3-3 1-10 0C-3-1-1-3 0-10Z' fill='%23f6dc9c' opacity='0.84'/%3E%3C/svg%3E");
   --star4: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Cpath d='M0-10C1-3 3-1 10 0C3 1 1 3 0 10C-1 3-3 1-10 0C-3-1-1-3 0-10Z' fill='%23000'/%3E%3C/svg%3E");
   --star4-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Cpath d='M0-10C1-3 3-1 10 0C3 1 1 3 0 10C-1 3-3 1-10 0C-3-1-1-3 0-10Z' fill='%23e2b65a'/%3E%3C/svg%3E");
-  --rowel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%237a5714' stroke-width='0.6'%3E%3Ccircle cx='50' cy='50' r='49'/%3E%3Ccircle cx='50' cy='50' r='47'/%3E%3Cpath d='M50 4L55.7 36.1L82.5 17.5L63.9 44.3L96 50L63.9 55.7L82.5 82.5L55.7 63.9L50 96L44.3 63.9L17.5 82.5L36.1 55.7L4 50L36.1 44.3L17.5 17.5L44.3 36.1Z'/%3E%3Ccircle cx='50' cy='50' r='6'/%3E%3Ccircle cx='50' cy='50' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
-  --flourish: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 11C50 6 150 6 196 11' fill='none' stroke='%23e2b65a' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M34 15.5C80 12.5 120 12.5 166 15.5' fill='none' stroke='%23e2b65a' stroke-width='1.2' stroke-linecap='round' opacity='.7'/%3E%3C/svg%3E");
+  --rowel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%231d4a66' stroke-width='0.45'%3E%3Cpath d='M102 50C103 55.7 101.2 62.8 98.1 68.2C95 73.5 89.3 79.3 83.2 82.3C77.1 85.3 68.4 85.7 61.4 86.2C54.3 86.6 47.3 86.6 41.1 85.1C34.8 83.5 29.2 80.3 24.1 77.1C19 73.8 14.6 70.1 10.6 65.6C6.5 61.1 1.1 55.7 -0.2 50C-1.4 44.3 -0.4 36.7 3 31.5C6.4 26.3 13.8 21.9 20.1 19C26.4 16.1 34 15 40.9 14.3C47.7 13.6 54.9 13.4 61.1 14.9C67.3 16.3 72.8 19.8 77.9 23.1C83.1 26.3 88 29.7 92.1 34.2C96.1 38.7 101 44.4 102 50Z'/%3E%3Cpath d='M95.4 50.6C95.9 55.7 93.3 61.9 90.1 66.4C86.9 70.8 81.4 74.9 76.1 77.5C70.8 80.1 64.1 81.7 58.2 82C52.4 82.3 46.6 80.5 41.1 79.2C35.7 77.9 30.4 76.7 25.7 74.3C21 71.9 16.5 68.6 13 64.6C9.4 60.7 5.1 55.6 4.4 50.6C3.6 45.7 5.4 39.3 8.5 34.9C11.6 30.5 17.7 27 23 24.3C28.3 21.5 34.4 18.8 40.1 18.4C45.8 18.1 52.1 20.7 57.4 22.2C62.7 23.8 67.1 25.5 72.1 27.8C77.1 30.1 83.4 32.2 87.2 36C91.1 39.8 94.9 45.6 95.4 50.6Z'/%3E%3Cpath d='M90.1 50C90.7 54.3 87.7 59.5 84.9 63.5C82.2 67.4 78.3 71.7 73.7 73.8C69.1 76 62.6 76.1 57.5 76.3C52.3 76.6 47.4 76.2 42.8 75.1C38.2 74.1 34 72.2 29.9 70.1C25.8 67.9 21.4 65.6 18.1 62.3C14.7 58.9 10.6 54.4 9.9 50C9.2 45.6 11.1 40 14 36.1C16.9 32.3 22.5 29.4 27.1 27.1C31.8 24.9 37.1 23 42.1 22.6C47.1 22.1 52.6 23.2 57.2 24.4C61.9 25.6 66 27.6 70.1 29.8C74.1 32 78 34.5 81.4 37.9C84.7 41.3 89.5 45.7 90.1 50Z'/%3E%3Cpath d='M82.6 48.5C82.7 52.3 80.8 56.5 78.5 59.8C76.1 63 72.5 66.4 68.6 68C64.7 69.6 59.4 69.3 55.2 69.4C51 69.6 47.4 69.5 43.3 69.1C39.3 68.6 34.8 68.4 31 66.8C27.2 65.2 22.9 62.6 20.4 59.6C17.9 56.5 16.4 52.3 16 48.5C15.7 44.7 15.8 39.7 18.2 36.6C20.7 33.5 26.5 31.4 30.7 29.9C34.8 28.4 39.1 27.8 43.2 27.4C47.3 27 51.1 27.1 55.2 27.5C59.2 28 63.6 28.5 67.5 30.2C71.3 31.8 75.8 34.2 78.4 37.3C80.9 40.3 82.6 44.8 82.6 48.5Z'/%3E%3Cpath d='M77.2 51.4C77.6 54.4 76.8 58.3 74.8 60.8C72.9 63.4 68.6 65.1 65.3 66.5C62.1 67.8 58.6 68.7 55.3 68.9C52 69.1 48.8 68.3 45.6 67.7C42.5 67.1 39.5 66.6 36.3 65.4C33.1 64.3 28.5 63 26.2 60.7C23.9 58.3 22.5 54.5 22.5 51.4C22.6 48.3 24.4 44.7 26.5 42.2C28.7 39.7 32.3 38 35.4 36.4C38.5 34.9 41.8 33.4 45.1 33.2C48.4 32.9 51.7 34.3 55 34.9C58.3 35.5 62.1 35.3 65 36.6C68 37.9 70.6 40.3 72.6 42.8C74.7 45.2 76.8 48.4 77.2 51.4Z'/%3E%3Cpath d='M70.4 50.3C70.6 52.7 70.2 55.7 68.7 57.7C67.2 59.7 64 61.2 61.4 62.2C58.9 63.1 56 63.3 53.4 63.5C50.8 63.8 48.2 64.2 45.8 63.8C43.4 63.3 41.6 62 39.1 61C36.6 59.9 32.5 59.4 30.8 57.6C29.1 55.8 28.9 52.7 28.9 50.3C29 47.9 29.5 45 31.1 43.2C32.8 41.4 36.3 40.4 38.7 39.3C41.1 38.3 43.3 37 45.8 36.7C48.2 36.3 50.9 36.9 53.4 37.4C55.8 37.8 58.1 38.5 60.5 39.5C62.9 40.4 66.2 41.5 67.9 43.3C69.5 45.1 70.3 47.9 70.4 50.3Z'/%3E%3Cpath d='M64.2 50.4C64.2 52 62.8 53.8 61.6 55.1C60.4 56.4 58.6 57.2 57 58C55.4 58.8 53.7 59.5 52 59.6C50.3 59.8 48.6 59.3 46.9 59C45.2 58.8 43.7 58.4 41.9 57.8C40.1 57.3 37.2 56.8 35.9 55.5C34.7 54.3 34.5 52.1 34.5 50.4C34.6 48.7 35 46.6 36.1 45.3C37.3 43.9 39.5 42.9 41.3 42.2C43 41.6 45 41.7 46.8 41.6C48.6 41.4 50.3 41 52 41.2C53.6 41.4 55.3 42 56.9 42.8C58.6 43.5 60.5 44.3 61.7 45.6C63 46.9 64.3 48.8 64.2 50.4Z'/%3E%3Cpath d='M58 51.4C57.9 52.3 56.8 53.3 56 54C55.3 54.6 54.2 55 53.3 55.4C52.5 55.8 51.6 56.1 50.7 56.3C49.8 56.4 48.9 56.4 47.9 56.4C46.9 56.3 45.6 56.4 44.6 56.1C43.7 55.7 42.9 54.9 42.3 54.1C41.7 53.3 41.1 52.3 41 51.4C41 50.5 41.4 49.3 42 48.6C42.7 47.9 44.1 47.5 45.1 47.2C46.1 46.9 47.1 46.8 48 46.7C48.9 46.6 49.7 46.6 50.7 46.6C51.6 46.7 52.7 46.7 53.7 47C54.7 47.3 56 47.8 56.7 48.5C57.4 49.3 58.2 50.5 58 51.4Z'/%3E%3C/g%3E%3C/svg%3E");
+  --flourish: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M4 10C20 4 36 4 52 10S84 16 100 10S132 4 148 10S180 16 196 10' fill='none' stroke='%23e2b65a' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M40 16C56 12.5 72 12.5 88 16S120 19.5 136 16S152 12.5 160 15' fill='none' stroke='%23e2b65a' stroke-width='1.2' stroke-linecap='round' opacity='.7'/%3E%3C/svg%3E");
 }

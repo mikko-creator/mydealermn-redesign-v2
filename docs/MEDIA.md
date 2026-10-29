@@ -1,7 +1,7 @@
 # Media: what is real and what is generated
 
-This is version 2 of the mydealermn.com redesign ("Midnight Mesa": glassmorphism with a mystical western look). It
-uses two kinds of imagery. Keep them apart when you edit the site.
+This is version 3 of the mydealermn.com redesign ("Lake Country": glassmorphism x Minnesota lake country). It uses
+two kinds of imagery. Keep them apart when you edit the site.
 
 ## 1. My Dealer's own media (real)
 
@@ -25,39 +25,40 @@ customers, products or brands, and none stands in for one. They are mood and cat
 
 All generated imagery follows the same rules: no people, faces, hands or bodies; no smoking, vaping or eating; no
 text, letters, numbers, labels, logos or brand marks (jars, cans and the vape device are blank); no candy, party or
-luxury cues. The moons, stars and western props are decoration: no picture shows or stands for a place, and My
-Dealer's store is in Bayport, Minnesota.
+luxury cues. The lake, pines, birch, stars and cabin props are a generic lake-country mood: no picture shows or
+stands for a real place, and none is a view of the town or river where My Dealer's store is.
 
 ### Stills (model family: FLUX1.1 [pro] ultra, run on fal.ai)
 
-Version 2 regenerated ten of the eleven stills in its own mood, keeping their ids, files and proportions. The
-photographs are night still lifes: weathered wood, brass, terracotta, turquoise stones and dried herbs in warm lantern
-or candle light, against an indigo background with soft star-like bokeh. The drawings are black-ink engravings with a
-crescent moon, stars and sun rays. `g-smoke` is kept from version 1.
+Version 3 regenerated ten of the eleven stills in the Lake Country mood, keeping their ids, files and proportions.
+The photographs are product still lifes at blue hour: weathered dock and cabin wood, pine, birch, wool, speckled
+blue camp enamelware and banded agate pebbles, with a calm lake and pine shoreline blurred behind and a warm lantern
+or lamp accent. The drawings are black-ink engravings with lake-country accents (pine boughs, a small star, water
+ripple lines). `g-smoke` is kept from version 1.
 
 | id | aspect | what it depicts |
 |---|---|---|
-| `g-bud-macro` | 16:9 | Macro of a frosty cured cannabis flower bud with amber pistils on dark weathered wood beside a small turquoise stone, warm rim light, indigo bokeh |
-| `g-deli-jars` | 3:2 | Three open, blank clear glass jars of cured flower on a weathered plank between two turquoise stones; a candle and dried sage in the background |
-| `g-prerolls` | 3:2 | Three unlit pre-rolls on a hammered brass plate, their open ends packed with ground flower, loose flower on dark wood, a lantern in the background |
-| `g-edibles` | 3:2 | Square amber gummies in a small terracotta dish on a dark wooden round, with two turquoise stones, dried herbs and a lantern in the background |
-| `g-vape` | 3:2 | An unbranded matte black all-in-one vape device with a small amber oil window on dark tooled leather, beside a brass bowl and turquoise stones |
-| `g-beverage` | 3:2 | Two blank, unlabelled matte cans (terracotta, cream) with condensation on weathered wood beside dried sage |
+| `g-bud-macro` | 16:9 | Macro of a frosty cured cannabis flower bud with orange pistils on a weathered, frosted grey surface, beside a pine sprig and a polished banded agate pebble, with a lantern glowing in front of a blurred lake at blue hour |
+| `g-deli-jars` | 3:2 | Three open, blank clear glass jars of cured flower on a weathered cabin table by a window, beside a red and black buffalo check wool blanket and a pine cone; a blurred lake and pines outside |
+| `g-prerolls` | 3:2 | Three empty paper pre-roll cones, two with white filter tips, on a speckled blue and white enamel camp plate on a pale wooden board beside a pine twig, with a blurred lake behind |
+| `g-edibles` | 3:2 | Square amber gummies in a small speckled blue enamel camp bowl on a grey wool blanket, beside a pine cone and a birch log, with a blurred lake through a window |
+| `g-vape` | 3:2 | An unbranded matte black all-in-one vape device with a small amber oil window on a wet dark stone, beside two banded agate pebbles, with a blurred lake at blue hour |
+| `g-beverage` | 3:2 | Three blank, unlabelled matte drink cans (pale blue, silver, pine green) with condensation on a weathered wooden dock beside a lantern, with a blurred lake and pine shoreline |
 | `g-smoke` | 16:9 | Wisps of pale smoke on near-black with a faint warm glow (a texture, kept from version 1) |
-| `s-leaf` | 4:5 | Engraving-style ink drawing of a cannabis fan leaf with a crescent moon, small stars and sun rays, on white |
-| `s-bud` | 4:5 | Engraving-style ink drawing of a cannabis flower bud on its stem among fan leaves, with a crescent moon, stars and sun rays, on white |
-| `s-jar` | 4:5 | Engraving-style ink drawing of an empty apothecary jar with a domed lid, a crescent moon, four-point stars and sun rays, on white |
-| `s-hat` | 1:1 | Engraving-style ink drawing of a fedora with folded sunglasses on its brim, sun rays behind and a moon and stars on the hat band (no face, no person), on white |
+| `s-leaf` | 4:5 | Engraving-style ink drawing of a cannabis fan leaf inside an open wreath of pine boughs tied with a small bow, with a small star above, on white |
+| `s-bud` | 4:5 | Engraving-style ink drawing of a cannabis flower bud on its stem among serrated leaves, standing in water ripple rings under a small four-point star and sparkles, on white |
+| `s-jar` | 4:5 | Engraving-style ink drawing of an empty apothecary jar with a domed lid and a knob, beside a pine sprig, with a small four-point star above, on white |
+| `s-hat` | 1:1 | Engraving-style ink drawing of an empty fedora with folded aviator sunglasses on its brim, on a short wooden dock plank above water ripple lines (no face, no person), on white |
 
 The four engravings were cleaned after generation: converted to neutral grey, the paper flattened to pure white (so
-they blend cleanly onto the parchment and night backgrounds), and the three tall ones cropped to 4:5. On the fan
-leaf, a tiny letter-like white speck inside one drawn star was filled in with ink.
+they blend cleanly onto light and dark backgrounds), and the three tall ones cropped to 4:5. Nothing was drawn into
+or removed from them.
 
 ### Motion (model family: Kling 3.0 Turbo image-to-video, run on Higgsfield)
 
 `loop-smoke.mp4` (1920 px wide) and `loop-smoke-sm.mp4` (900 px wide) are a 10-second silent loop: the
 `g-smoke` still animated into drifting smoke with a slow camera push, then played forward and in reverse so the
-end meets the start without a jump. `loop-smoke.jpg` is its first frame, used as the poster. Version 2 keeps it as
+end meets the start without a jump. `loop-smoke.jpg` is its first frame, used as the poster. Version 3 keeps it as
 it is.
 
 ## 3. How the AI label is embedded
