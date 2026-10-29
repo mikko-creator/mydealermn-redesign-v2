@@ -1,0 +1,118 @@
+/* sketch.css - v2 ornament layer (main session). The file keeps its v1 name and the .sk-* hooks the templates use; the
+   pieces are now mystical-western: flourish underlines, lassos, fletched arrows, engraved corner brackets, captions
+   set in Cormorant italic, cabinet-card photos pinned with a brass tack, gold engraving illustrations, and the v2
+   .or-* set (stars, rowels, rules, moons, constellations, mesas, saguaros, twinkling skies). Helpers: util.mjs. */
+.sk { display: block; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; overflow: visible; pointer-events: none; }
+.sk text { fill: currentColor; stroke: none; }
+
+/* .scribble: an accent word with a flourish under it (svg from skUnderline(), or the CSS fallback) */
+.scribble { position: relative; display: inline-block; white-space: nowrap; isolation: isolate; }
+.scribble > .sk-underline { position: absolute; left: -2%; width: 104%; bottom: -0.2em; height: 0.34em; color: var(--gold); z-index: -1; stroke-width: 2.2; }
+.band--paper .scribble > .sk-underline, .glass--milk .scribble > .sk-underline, .card .scribble > .sk-underline { color: var(--clay); }
+.scribble:not(:has(.sk))::after {
+  content: ""; position: absolute; left: -2%; right: -2%; bottom: -0.18em; height: 0.3em; z-index: -1;
+  background: no-repeat center / 100% 100% var(--flourish);
+}
+
+/* lasso around a word / object */
+.sk-circled { position: relative; display: inline-block; }
+.sk-circled > .sk-circle { position: absolute; left: -11%; top: -26%; width: 122%; height: 152%; color: var(--gold); stroke-width: 1.8; }
+.band--paper .sk-circled > .sk-circle, .card .sk-circled > .sk-circle { color: var(--clay); }
+
+/* fletched arrows: skArrow(dir) -> .sk-arrow--right|left|down|up|down-left|down-right */
+.sk-arrow { width: 96px; height: 48px; color: var(--gold); stroke-width: 2; }
+.band--paper .sk-arrow { color: var(--clay-2); }
+.sk-arrow--left { transform: scaleX(-1); }
+.sk-arrow--down { transform: rotate(90deg); }
+.sk-arrow--up { transform: rotate(-90deg); }
+.sk-arrow--down-right { transform: rotate(35deg); }
+.sk-arrow--down-left { transform: scaleX(-1) rotate(35deg); }
+
+/* engraved caption (decoration, or My Dealer's own words): Cormorant italic with a small star */
+.sk-note {
+  display: inline-flex; align-items: baseline; gap: 0.4em;
+  font-family: var(--font-hand); font-style: italic; font-weight: 600; font-size: var(--fs-hand); line-height: 1.1;
+  color: var(--gold-hi); transform: rotate(var(--note-tilt, -2deg)); transform-origin: left center;
+}
+.sk-note::before {
+  content: ""; flex: none; width: 0.55em; height: 0.55em; background: currentColor; align-self: center;
+  -webkit-mask: var(--star4) center / contain no-repeat; mask: var(--star4) center / contain no-repeat;
+}
+.band--paper .sk-note, .glass--milk .sk-note { color: var(--clay-2); }
+
+/* photo frame: a gold double rule with four-point stars on the corners (+ optional skFrame() corner brackets) */
+.sk-frame { position: relative; display: block; padding: 12px; color: rgba(226, 182, 90, 0.72); border: 1px solid currentColor; border-radius: 3px; }
+.band--paper .sk-frame { color: rgba(122, 87, 20, 0.55); }
+.sk-frame::after { content: ""; position: absolute; inset: 5px; border: 1px solid currentColor; opacity: 0.5; pointer-events: none; border-radius: 2px; }
+.sk-frame::before {
+  content: ""; position: absolute; inset: -7px; pointer-events: none; z-index: 2; background: currentColor;
+  -webkit-mask: var(--star4) left top / 14px 14px no-repeat, var(--star4) right top / 14px 14px no-repeat, var(--star4) left bottom / 14px 14px no-repeat, var(--star4) right bottom / 14px 14px no-repeat;
+  mask: var(--star4) left top / 14px 14px no-repeat, var(--star4) right top / 14px 14px no-repeat, var(--star4) left bottom / 14px 14px no-repeat, var(--star4) right bottom / 14px 14px no-repeat;
+}
+.sk-frame > img, .sk-frame > picture img { width: 100%; height: auto; border-radius: 1px; transition: transform var(--dur-3) var(--ease-out), filter var(--dur-3); }
+.sk-frame:hover > img, .sk-frame:hover > picture img { transform: scale(1.015); }
+.sk-frame > .sk-frame__marks { position: absolute; inset: 14px; width: calc(100% - 28px); height: calc(100% - 28px); stroke-width: 1.4; color: var(--gold-hi); z-index: 1; }
+.band--paper .sk-frame > .sk-frame__marks { color: var(--cream); }
+.sk-frame__cap { display: block; margin-top: 10px; font-family: var(--font-serif); font-style: italic; font-weight: 600; font-size: 1.15rem; line-height: 1.25; color: inherit; }
+.band--night .sk-frame__cap, .band--dusk .sk-frame__cap { color: var(--muted-on-ink); }
+.band--paper .sk-frame__cap { color: var(--muted-on-paper); }
+
+/* cabinet card: a mounted photo pinned with a brass tack, slightly tilted; straightens and lifts on hover */
+.sk-tape {
+  position: relative; display: block; padding: 12px 12px 14px; background: var(--cream); border-radius: 4px;
+  border: 1px solid rgba(122, 87, 20, 0.22);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 20px 40px -14px rgba(13, 12, 20, 0.55);
+  rotate: var(--tilt, -2.5deg);
+  transition: rotate var(--dur-2) var(--ease-out), scale var(--dur-2) var(--ease-out), box-shadow var(--dur-2);
+}
+.sk-tape::after { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(122, 87, 20, 0.3); border-radius: 2px; pointer-events: none; }
+.sk-tape::before {
+  content: ""; position: absolute; top: -7px; left: 50%; width: 16px; height: 16px; translate: -50% 0; border-radius: 50%; z-index: 2;
+  background: radial-gradient(circle at 35% 32%, #fff3cf 0 12%, #e9c46f 30%, #b8872f 62%, #6b4a12 100%);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(107, 74, 18, 0.5);
+}
+.sk-tape img { width: 100%; height: auto; border-radius: 1px; }
+.sk-tape:hover { rotate: 0deg; scale: 1.02; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 30px 54px -16px rgba(13, 12, 20, 0.6); }
+.sk-tape figcaption, .sk-tape .sk-tape__cap { margin-top: 10px; font-family: var(--font-serif); font-style: italic; font-weight: 600; font-size: 1.12rem; color: var(--graphite); line-height: 1.2; }
+
+/* engraving illustrations (black line art on white): multiply onto parchment; on night they turn to gold lines */
+.sk-illo { mix-blend-mode: multiply; }
+.band--night .sk-illo, .band--dusk .sk-illo, .glass .sk-illo:not(.glass--milk *) {
+  filter: invert(1) sepia(1) saturate(2.6) hue-rotate(-12deg) brightness(0.95); mix-blend-mode: screen; opacity: 0.92;
+}
+
+/* leader line from a label to a thing */
+.sk-leader { stroke-width: 1.2; color: currentColor; opacity: 0.75; }
+
+/* ---------- v2 ornaments (.or-*) ---------- */
+.or-star { display: inline-block; width: 1em; height: 1em; flex: none; fill: currentColor; vertical-align: -0.1em; overflow: visible; }
+.or-star--foil { fill: url(#or-foil); }
+/* ornamental divider */
+.or-rule { width: min(100%, 240px); height: 24px; color: var(--band-accent, var(--gold-ink)); stroke-width: 1.2; }
+.band__head--center .or-rule, .or-rule--center { margin-inline: auto; }
+.or-rule .or-rule__star, .or-rule .or-rule__dot { fill: currentColor; stroke: none; }
+.or-rule .or-rule__star { transform-box: fill-box; transform-origin: center; }
+html.js .or-rule[data-draw] .or-rule__star { scale: 0; rotate: -90deg; transition: scale 0.7s var(--ease-out) 0.55s, rotate 1.2s var(--ease-out) 0.55s; }
+html.js .or-rule[data-draw].is-in .or-rule__star, html.js.io-dead .or-rule[data-draw] .or-rule__star { scale: 1; rotate: 0deg; }
+/* crescent moon */
+.or-moon { display: block; width: 120px; height: 120px; fill: var(--gold-hi); filter: drop-shadow(0 0 18px rgba(246, 220, 156, 0.45)); }
+/* rowel / star-chart wheel: thin lines, slow turn (motion.css) */
+.or-rowel { display: block; width: 100%; height: auto; color: rgba(226, 182, 90, 0.3); }
+.band--paper .or-rowel { color: rgba(122, 87, 20, 0.22); }
+/* constellation: lines draw on, stars pop in */
+.or-con { color: rgba(246, 220, 156, 0.55); stroke-width: 1; }
+.or-con .or-con__star { fill: var(--gold-hi); stroke: none; transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 0 4px rgba(246, 220, 156, 0.8)); }
+html.js .or-con[data-draw] .or-con__star { scale: 0; transition: scale 0.6s var(--ease-out); transition-delay: calc(0.3s + var(--i, 0) * 0.12s); }
+html.js .or-con[data-draw].is-in .or-con__star, html.js.io-dead .or-con[data-draw] .or-con__star { scale: 1; }
+.band--paper .or-con { color: rgba(122, 87, 20, 0.45); }
+.band--paper .or-con .or-con__star { fill: var(--gold-2); filter: none; }
+/* desert skyline silhouette */
+.or-mesa { display: block; width: 100%; height: clamp(70px, 11vw, 180px); }
+.or-mesa .or-mesa__far { fill: var(--mesa-far, #1d1830); }
+.or-mesa .or-mesa__near { fill: var(--mesa-near, #0a0910); }
+.or-mesa .or-mesa__cacti { stroke: var(--mesa-near, #0a0910); }
+/* saguaro */
+.or-cactus { display: block; width: 60px; height: 150px; color: var(--mesa-near, #0a0910); }
+/* twinkling sky: covers its positioned parent */
+.or-sky { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; fill: #fff7e6; }
+.or-sky .or-sky__spark { fill: var(--gold-hi); }
