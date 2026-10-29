@@ -1,5 +1,5 @@
 /* mobile.css - the phone/tablet pass for the chrome and the shared components (SHELL lane; loaded after the lane
-   sheets, before fix.css). Below 1024 px the navigation is a drawer: a night sky with large Cinzel links, gold rules
+   sheets, before fix.css). Below 1024 px the navigation is a drawer: a night sky with large Bitter links, gold rules
    between groups, the gold menu button and the pickup line at its foot. Phones: two top rows that scroll away (the
    promo ticker and the licence line), a 60 px header, 44 px footer link rows, the shared floors (buttons 48 px, chips
    44 px, labels 13 px, crumbs 44 px taps) and the glass policy (cards lose their blur; the header, the drawer scrim
@@ -10,8 +10,8 @@
   .header-cta { display: none; }
   .nav-toggle {
     display: grid; place-items: center; align-self: center; margin-left: auto; width: 46px; height: 46px; border-radius: 50%;
-    color: var(--gold-hi); background: rgba(24, 20, 36, 0.55); border: 1px solid rgba(226, 182, 90, 0.5);
-    box-shadow: inset 0 0 0 3px rgba(13, 12, 20, 0.7), inset 0 0 0 4px rgba(226, 182, 90, 0.18);
+    color: var(--gold-hi); background: rgba(12, 30, 42, 0.55); border: 1px solid rgba(226, 182, 90, 0.5);
+    box-shadow: inset 0 0 0 3px rgba(10, 22, 32, 0.7), inset 0 0 0 4px rgba(226, 182, 90, 0.18);
   }
   .nav-toggle .ico { width: 22px; height: 22px; }
   .nav {
@@ -20,8 +20,8 @@
     padding: 0 22px 32px; color: var(--text-on-ink);
     background-color: var(--ink);
     background-image:
-      radial-gradient(90% 34% at 100% 0%, rgba(61, 49, 96, 0.62), transparent 72%),
-      radial-gradient(90% 26% at 0% 100%, rgba(200, 105, 63, 0.2), transparent 72%),
+      radial-gradient(90% 34% at 100% 0%, rgba(43, 111, 147, 0.62), transparent 72%),
+      radial-gradient(90% 26% at 0% 100%, rgba(224, 122, 95, 0.2), transparent 72%),
       var(--stars-b), var(--stars-a);
     background-size: auto, auto, 560px 560px, 240px 240px;
     border-left: 1px solid rgba(226, 182, 90, 0.38);
@@ -32,7 +32,7 @@
   html.nav-open .nav { transform: none; visibility: visible; transition-delay: 0s; }
   /* the drawer lives in the header: lift it over the scrim and top bars */
   html.nav-open .site-header { z-index: calc(var(--z-mega) + 6); }
-  .nav-scrim { position: fixed; inset: 0; z-index: calc(var(--z-mega) + 4); background: rgba(13, 12, 20, 0.6); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  .nav-scrim { position: fixed; inset: 0; z-index: calc(var(--z-mega) + 4); background: rgba(10, 22, 32, 0.6); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
   .nav__drawer-head {
     display: flex; align-items: center; justify-content: space-between; min-height: 68px; color: var(--gold);
     border-bottom: 1px solid transparent; border-image: linear-gradient(90deg, rgba(226, 182, 90, 0.6), rgba(226, 182, 90, 0.08)) 1;
@@ -57,7 +57,7 @@
   /* the open group stays a tarot card (inner rule + corner stars), on an opaque drawer it needs no blur */
   .mega__panel {
     display: grid; grid-template-columns: 1fr; gap: 20px; width: 100%; padding: 22px 20px 22px 22px;
-    background-color: rgba(24, 20, 36, 0.72); background-image: none;
+    background-color: rgba(12, 30, 42, 0.72); background-image: none;
     -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none;
   }
   .mega__grid, .mega__grid--4, .mega__grid--3 { grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -101,8 +101,8 @@
     --section-y: 56px;
     /* glass policy: cards lose their blur on phones (backdrop-filter is costly on phone GPUs) and keep the same tint,
        near-opaque; the blur stays on the header, the drawer scrim and the age gate */
-    --glass-ink: rgba(24, 20, 36, 0.94);
-    --glass-milk: rgba(251, 243, 228, 0.94);
+    --glass-ink: rgba(12, 30, 42, 0.94);
+    --glass-milk: rgba(251, 248, 241, 0.94);
   }
   .glass:not(.age-gate__card), .btn--glass { -webkit-backdrop-filter: none; backdrop-filter: none; }
   /* top bars: the promo ticker (44 px) and the licence line, both scroll away; only the header (60 px) stays */

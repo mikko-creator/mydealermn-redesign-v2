@@ -1,6 +1,6 @@
-/* shell.css - v2 "Midnight Mesa" chrome (SHELL lane): a dusk promo strip with four-point stars, the licence line on
+/* shell.css - v2 "Lake Country" chrome (SHELL lane): a dusk promo strip with four-point stars, the licence line on
    night, a smoked-glass header with a gold hairline edge, glass tarot mega menus with arched image cards, the footer
-   as a night band with a mesa skyline rising over its top seam and parchment notice cards, the 21+ gate as a glass
+   as a night band with a pine shoreline rising over its top seam and parchment notice cards, the 21+ gate as a glass
    tarot card with the dealer in an arched night portal, and a parchment breadcrumb bar with a fine double rule.
    Pseudo-elements the components own (.band, .glass, .glass--tarot, .arch-frame, .kicker) are never touched here:
    the header frosts on its OWN ::before (a backdrop-filter on the header would blind the megas' blur). */
@@ -10,10 +10,10 @@
 /* promo: a slim dusk strip, gold type, stars as separators */
 .promo {
   color: var(--gold-hi); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.035em;
-  background-color: #1b1630;
+  background-color: #0f2435;
   background-image:
-    radial-gradient(50% 240% at 50% 150%, rgba(200, 105, 63, 0.2), transparent 70%),
-    linear-gradient(90deg, #100e1b 0%, #2a2240 32%, #30264a 50%, #2a2240 68%, #100e1b 100%);
+    radial-gradient(50% 240% at 50% 150%, rgba(224, 122, 95, 0.2), transparent 70%),
+    linear-gradient(90deg, #0b1a25 0%, #12324a 32%, #1a4058 50%, #12324a 68%, #0b1a25 100%);
   border-bottom: 1px solid rgba(226, 182, 90, 0.2);
 }
 .promo__inner { display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 38px; padding-block: 6px; }
@@ -43,8 +43,8 @@
 .site-header { position: sticky; top: 0; z-index: var(--z-header); color: var(--text-on-ink); }
 .site-header::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background-color: rgba(13, 12, 20, 0.9);
-  background-image: linear-gradient(180deg, rgba(61, 49, 96, 0.34), rgba(61, 49, 96, 0) 85%);
+  background-color: rgba(10, 22, 32, 0.9);
+  background-image: linear-gradient(180deg, rgba(43, 111, 147, 0.34), rgba(43, 111, 147, 0) 85%);
   -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
   box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.8);
   transition: background-color var(--dur-2);
@@ -54,15 +54,15 @@
   background: linear-gradient(90deg, rgba(226, 182, 90, 0.08) 0%, rgba(226, 182, 90, 0.6) 22%, rgba(246, 220, 156, 0.95) 50%, rgba(226, 182, 90, 0.6) 78%, rgba(226, 182, 90, 0.08) 100%);
 }
 .is-home .site-header { margin-bottom: calc(-1 * var(--header-h)); }
-.is-home .site-header:not(.is-scrolled):not(.has-open-mega)::before { background-color: rgba(13, 12, 20, 0.34); }
-.site-header.is-scrolled::before, .site-header.has-open-mega::before { background-color: rgba(13, 12, 20, 0.84); }
+.is-home .site-header:not(.is-scrolled):not(.has-open-mega)::before { background-color: rgba(10, 22, 32, 0.34); }
+.site-header.is-scrolled::before, .site-header.has-open-mega::before { background-color: rgba(10, 22, 32, 0.84); }
 .site-header__inner { display: flex; align-items: stretch; gap: clamp(12px, 2vw, 28px); height: var(--header-h); }
 
-/* brand: the dealer in a gold double ring, the wordmark in Cinzel */
+/* brand: the dealer in a gold double ring, the wordmark in Bitter */
 .brand { display: inline-flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; flex: none; }
 .brand__logo {
   width: 46px; height: 46px; border-radius: 50%; object-fit: cover;
-  box-shadow: 0 0 0 1px rgba(226, 182, 90, 0.75), 0 0 0 4px rgba(13, 12, 20, 0.7), 0 0 0 5px rgba(226, 182, 90, 0.3), 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 1px rgba(226, 182, 90, 0.75), 0 0 0 4px rgba(10, 22, 32, 0.7), 0 0 0 5px rgba(226, 182, 90, 0.3), 0 8px 20px rgba(0, 0, 0, 0.5);
   transition: transform var(--dur-2) var(--ease-out);
 }
 .brand:hover .brand__logo { transform: rotate(-8deg) scale(1.04); }
@@ -126,10 +126,10 @@
   --glass-r: var(--r-lg);
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 250px); gap: clamp(24px, 3vw, 52px);
   padding: clamp(28px, 2.6vw, 40px) clamp(30px, 3.2vw, 52px);
-  background-color: rgba(17, 14, 28, 0.8);
+  background-color: rgba(8, 18, 26, 0.8);
   background-image:
-    radial-gradient(48% 90% at 0% 0%, rgba(61, 49, 96, 0.55), transparent 72%),
-    radial-gradient(40% 80% at 100% 100%, rgba(200, 105, 63, 0.16), transparent 72%);
+    radial-gradient(48% 90% at 0% 0%, rgba(43, 111, 147, 0.55), transparent 72%),
+    radial-gradient(40% 80% at 100% 100%, rgba(224, 122, 95, 0.16), transparent 72%);
   -webkit-backdrop-filter: blur(26px) saturate(160%); backdrop-filter: blur(26px) saturate(160%);
   box-shadow: inset 0 1px 0 var(--glass-ink-hi), 0 44px 90px -34px rgba(0, 0, 0, 0.85);
 }
@@ -157,14 +157,14 @@
 .mega__links a:hover .mega__star, .mega__links a:focus-visible .mega__star, .mega__links a[aria-current="page"] .mega__star { opacity: 1; transform: none; }
 .mega__links a[aria-current="page"] { color: var(--gold); }
 .mega__note { margin-top: 10px; font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 1.08rem; line-height: 1.25; color: var(--muted-on-ink); }
-/* the image card: an arched portal (.arch-frame > .arch), its kicker between stars, a Cormorant line */
+/* the image card: an arched portal (.arch-frame > .arch), its kicker between stars, a Lora line */
 .mega__card { display: grid; align-content: start; justify-items: center; gap: 4px; text-align: center; color: var(--text-on-ink); text-decoration: none; }
 .mega__arch { --arch-pad: 6px; display: block; width: 100%; transition: border-color var(--dur-2); }
 .mega__media { display: block; aspect-ratio: 1 / 0.96; background-color: var(--ink); }
 .mega__media img, .mega__media .img-slot { transition: transform 1.2s var(--ease-out); }
 .mega__card:hover .mega__media img, .mega__card:focus-visible .mega__media img { transform: scale(1.06); }
 .mega__card:hover .mega__arch { --arch-line: var(--gold-hi); }
-.mega__media--sketch { background: radial-gradient(70% 60% at 50% 100%, rgba(200, 105, 63, 0.25), transparent 70%), linear-gradient(180deg, #0d0c14, #2a2240); }
+.mega__media--sketch { background: radial-gradient(70% 60% at 50% 100%, rgba(224, 122, 95, 0.25), transparent 70%), linear-gradient(180deg, #0a1620, #12324a); }
 .mega__media--sketch > img { object-fit: contain; padding: 16px 14px 6px; }
 .mega__card-k {
   display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;
@@ -173,17 +173,17 @@
 .mega__k-star { width: 8px; height: 8px; }
 .mega__card-t { font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 1.14rem; line-height: 1.25; color: var(--text-on-ink); max-width: 24ch; }
 
-/* ---------- footer: night band, a mesa skyline rising over its top seam (front plane), parchment notices ---------- */
+/* ---------- footer: night band, a pine shoreline rising over its top seam (front plane), parchment notices ---------- */
 .site-footer.band--night {
   z-index: 2; /* above an ordinary last band, so the skyline crosses the seam; a .band--over last band stays on top */
   padding-block: clamp(76px, 8.5vw, 120px) 28px; font-size: 0.95rem;
   /* the top of the footer is the colour of the near ridge, so the skyline and the band read as one ground */
   background-image:
-    radial-gradient(60% 46% at 50% 108%, rgba(61, 49, 96, 0.5), transparent 72%),
-    radial-gradient(40% 40% at 96% 100%, rgba(200, 105, 63, 0.13), transparent 72%),
-    linear-gradient(180deg, #0d0c14 0%, #100e1a 40%, #15121f 100%);
+    radial-gradient(60% 46% at 50% 108%, rgba(43, 111, 147, 0.5), transparent 72%),
+    radial-gradient(40% 40% at 96% 100%, rgba(224, 122, 95, 0.13), transparent 72%),
+    linear-gradient(180deg, #0a1620 0%, #0b1a25 40%, #0e1e2a 100%);
 }
-.footer__horizon { position: absolute; left: 0; right: 0; bottom: calc(100% - 1px); height: clamp(56px, 8vw, 116px); pointer-events: none; --mesa-far: #251e3a; --mesa-near: #0d0c14; }
+.footer__horizon { position: absolute; left: 0; right: 0; bottom: calc(100% - 1px); height: clamp(56px, 8vw, 116px); pointer-events: none; --mesa-far: #142f42; --mesa-near: #0a1620; }
 .footer__mesa { height: 100%; }
 .footer__sky { position: absolute; top: clamp(18px, 2vw, 28px); right: var(--gutter); width: clamp(200px, 17vw, 260px); pointer-events: none; }
 .footer__con { display: block; width: 100%; height: auto; color: rgba(246, 220, 156, 0.42); }
@@ -191,14 +191,14 @@
 .brand--footer .brand__logo { width: 58px; height: 58px; }
 .brand--footer .brand__name { font-size: 1.6rem; }
 .footer__brand > * + * { margin-top: 16px; }
-.footer__blurb { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 500; line-height: 1.4; color: rgba(243, 234, 216, 0.86); max-width: 34ch; }
+.footer__blurb { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 500; line-height: 1.4; color: rgba(238, 243, 242, 0.86); max-width: 34ch; }
 .footer__addr { color: var(--text-on-ink); }
 .footer__tel a { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-weight: 600; letter-spacing: 0.04em; text-decoration: none; }
 .footer__tel a:hover { color: var(--gold-hi); text-decoration: underline; }
 .footer__socials { display: flex; gap: 10px; }
 .footer__social {
   display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: var(--gold-hi);
-  border: 1px solid rgba(226, 182, 90, 0.4); box-shadow: inset 0 0 0 3px rgba(13, 12, 20, 0.9), inset 0 0 0 4px rgba(226, 182, 90, 0.16);
+  border: 1px solid rgba(226, 182, 90, 0.4); box-shadow: inset 0 0 0 3px rgba(10, 22, 32, 0.9), inset 0 0 0 4px rgba(226, 182, 90, 0.16);
   transition: background-color var(--dur-1), color var(--dur-1), transform var(--dur-1), border-color var(--dur-1);
 }
 .footer__social:hover { background: var(--gold); color: var(--ink); border-color: var(--gold-hi); transform: translateY(-2px); box-shadow: none; }
@@ -222,36 +222,36 @@
 .footer__licenses, .footer__warning {
   position: relative; color: var(--text-on-paper);
   background-color: var(--paper);
-  background-image: radial-gradient(130% 120% at 50% 40%, transparent 55%, rgba(122, 87, 20, 0.16) 100%);
-  border: 1px solid rgba(122, 87, 20, 0.5); border-radius: var(--r-sm);
-  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px rgba(122, 87, 20, 0.36), 0 22px 44px -26px rgba(0, 0, 0, 0.9);
+  background-image: radial-gradient(130% 120% at 50% 40%, transparent 55%, rgba(29, 74, 102, 0.16) 100%);
+  border: 1px solid rgba(29, 74, 102, 0.5); border-radius: var(--r-sm);
+  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px rgba(29, 74, 102, 0.36), 0 22px 44px -26px rgba(0, 0, 0, 0.9);
 }
 .footer__licenses { padding: 22px 24px 20px; }
 .footer__licenses .footer__h { color: var(--gold-ink); }
 .footer__licenses p { color: var(--muted-on-paper); max-width: 52ch; }
 .footer__licbar { margin-top: 10px; font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-ink) !important; }
-.footer__warning { margin-top: 30px; padding: 20px 26px; color: #3a3226; font-size: 0.875rem; line-height: 1.65; }
+.footer__warning { margin-top: 30px; padding: 20px 26px; color: #2c3a40; font-size: 0.875rem; line-height: 1.65; }
 .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 24px; font-family: var(--font-ui); font-size: 0.8125rem; letter-spacing: 0.04em; color: var(--muted-on-ink); }
 .footer__legal a { color: var(--gold); }
 .footer__legal a:hover { color: var(--gold-hi); }
 
-/* ---------- 21+ gate: a glass tarot card; the dealer in an arched night portal with a crescent moon and stars ---------- */
+/* ---------- 21+ gate: a glass tarot card; the dealer in an arched night portal with a moon and stars ---------- */
 .age-gate {
   position: fixed; inset: 0; z-index: var(--z-gate); display: grid; place-items: center; padding: 20px; overflow-y: auto;
-  background: radial-gradient(70% 60% at 50% 35%, rgba(61, 49, 96, 0.5), rgba(13, 12, 20, 0.84) 75%);
+  background: radial-gradient(70% 60% at 50% 35%, rgba(43, 111, 147, 0.5), rgba(10, 22, 32, 0.84) 75%);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
 .age-gate[hidden] { display: none; }
 .age-gate__card {
   --glass-r: var(--r-lg);
   width: min(100%, 440px); margin-top: 70px; padding: 0 34px 32px; text-align: center; display: grid; justify-items: center; gap: 12px;
-  background-color: rgba(17, 14, 28, 0.8);
+  background-color: rgba(8, 18, 26, 0.8);
 }
-.age-gate__portal { --arch-pad: 6px; width: 164px; margin-top: -70px; margin-bottom: 8px; background: rgba(13, 12, 20, 0.92); box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.8); }
+.age-gate__portal { --arch-pad: 6px; width: 164px; margin-top: -70px; margin-bottom: 8px; background: rgba(10, 22, 32, 0.92); box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.8); }
 .age-gate__arch {
   height: 184px;
   background-color: var(--ink);
-  background-image: radial-gradient(80% 50% at 50% 104%, rgba(200, 105, 63, 0.6), transparent 72%), linear-gradient(180deg, #0d0c14 0%, #1c172e 45%, #3d3160 100%);
+  background-image: radial-gradient(80% 50% at 50% 104%, rgba(224, 122, 95, 0.6), transparent 72%), linear-gradient(180deg, #0a1620 0%, #102434 45%, #1d4a66 100%);
 }
 .age-gate__sky { position: absolute; inset: 0; background-image: var(--stars-b), var(--stars-a); background-size: 300px 300px, 130px 130px; background-position: -40px -20px, 0 0; }
 .age-gate__moon { position: absolute; top: 26px; left: 30px; width: 34px; height: 34px; rotate: -24deg; filter: drop-shadow(0 0 10px rgba(246, 220, 156, 0.55)); }
@@ -262,7 +262,7 @@
 .age-gate__arch > .age-gate__logo { position: absolute; left: 50%; bottom: -1px; width: 148px; height: auto; translate: -50% 0; border-radius: 0; object-fit: contain; filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.6)); }
 .age-gate__card .kicker { --band-accent: var(--gold); }
 .age-gate__q { font-size: clamp(1.75rem, 1.35rem + 1.6vw, 2.35rem); letter-spacing: 0.04em; color: var(--cream); }
-.age-gate__d { font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 1.22rem; line-height: 1.35; color: rgba(243, 234, 216, 0.88); }
+.age-gate__d { font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 1.22rem; line-height: 1.35; color: rgba(238, 243, 242, 0.88); }
 .age-gate__actions { justify-content: center; margin-top: 6px; }
 .age-gate__actions .btn { min-width: 116px; }
 .age-gate__actions .btn--ghost { color: var(--text-on-ink); border-color: rgba(226, 182, 90, 0.55); }
@@ -274,8 +274,8 @@ html.gate-open, html.nav-open { overflow: hidden; }
 .crumbs-bar {
   padding-block: 12px;
   background-color: var(--paper);
-  background-image: linear-gradient(90deg, rgba(122, 87, 20, 0.08), transparent 24%, transparent 76%, rgba(122, 87, 20, 0.08));
-  border-bottom: 3px double rgba(122, 87, 20, 0.42);
+  background-image: linear-gradient(90deg, rgba(29, 74, 102, 0.08), transparent 24%, transparent 76%, rgba(29, 74, 102, 0.08));
+  border-bottom: 3px double rgba(29, 74, 102, 0.42);
 }
 .crumbs-bar .crumbs a { color: var(--pine); }
 .crumbs-bar .crumbs a:hover { color: var(--clay-2); }
