@@ -3,6 +3,7 @@
 // ia.json / site.json link labels where one exists, otherwise from the page's own <title> (text before " | ").
 import { esc, escA, linkAttrs, stripTags, orRule, orSky, orMesa } from './util.mjs';
 import { page } from './shell.mjs';
+import { crumbsIntoHero } from './hubs.mjs';
 
 const PATH = '/site-map/';
 const GROUPS = ['Shop & Explore', 'Dispensaries & areas', 'Resources', 'Company', 'Legal'];
@@ -88,7 +89,7 @@ export async function render(ctx) {
     html: page({
       ctx, path: PATH, title, description, canonical: 'https://mydealermn.com' + PATH,
       og: { 'og:title': title, 'og:description': description, 'og:type': 'website', 'og:site_name': 'My Dealer', 'og:locale': 'en_US', 'og:url': 'https://mydealermn.com' + PATH },
-      bodyClass: 'r-page r-page--sitemap', main, crumbs: [['/', 'Home'], [PATH, 'Sitemap']],
+      bodyClass: 'r-page r-page--sitemap', main: crumbsIntoHero(main, [['/', 'Home'], [PATH, 'Sitemap']]), crumbs: [],
     }),
   }];
 }

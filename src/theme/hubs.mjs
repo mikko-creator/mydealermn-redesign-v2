@@ -3,8 +3,17 @@
 // verbatim), ctx.ia or captured blocks in ctx.content (rendered with renderBlocks, so the words stay exact). New words
 // are neutral glue only: labels, one-line hub intros, button text. Own classes are prefixed r-.
 import { esc, escA, attrs, href, linkAttrs, img, gimg, stripTags, skUnderline, skCircle, orStar, orRule, orSky, orMesa, orMoon } from './util.mjs';
-import { page } from './shell.mjs';
+import { page, crumbsHtml } from './shell.mjs';
 import { renderBlocks } from './blocks.mjs';
+// Breadcrumbs sit inside the hero text column, as on the captured pages (pages.mjs .p-hero__crumbs): one placement
+// site-wide. Throws when a page has no hero text block, so a breadcrumb is never dropped silently.
+export function crumbsIntoHero(main, crumbs, where = '') {
+  const re = /(<(?:div|header|section)\b[^>]*\bclass="[^"]*\b(?:r-hero__text|r-loc-hero__text|mn-hero__panel)\b[^"]*"[^>]*>)/;
+  if (!crumbs || !crumbs.length) return main;
+  if (!re.test(main)) throw new Error('hubs: no hero text block for the breadcrumb on ' + (where || 'a page') + ': ' + (main.match(/class="[^"]*hero[^"]*"/g) || []).slice(0, 6).join(' '));
+  return main.replace(re, (m) => m + '<div class="p-hero__crumbs">' + crumbsHtml(crumbs) + '</div>');
+}
+
 
 const ORIGIN = 'https://mydealermn.com';
 const OG_IMAGE = 'https://mydealermn.com/og-card.jpg';
@@ -826,6 +835,6 @@ export async function render(ctx) {
   if (missing.length) console.warn('warning: hubs: captured content not found: ' + [...new Set(missing)].join(' | '));
   return defs.map((d) => ({
     path: d.path,
-    html: page({ ctx, path: d.path, title: d.title, description: d.description, canonical: d.canonical, og: d.og, jsonld: d.jsonld || [], bodyClass: d.bodyClass, main: d.main, crumbs: d.crumbs }),
+    html: page({ ctx, path: d.path, title: d.title, description: d.description, canonical: d.canonical, og: d.og, jsonld: d.jsonld || [], bodyClass: d.bodyClass, main: crumbsIntoHero(d.main, d.crumbs, d.path), crumbs: [] }),
   }));
 }

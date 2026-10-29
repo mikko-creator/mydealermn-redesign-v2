@@ -5,6 +5,7 @@
 // Words: site.json strings verbatim (order ahead, categories, brands, what it sells, payment, hours); new words are
 // labels only. Links marked data-keep-live are the only ones build.mjs leaves pointing at the live menu.
 import { page } from './shell.mjs';
+import { crumbsIntoHero } from './hubs.mjs';
 import { esc, escA, linkAttrs, gimg, skUnderline, orRule, orSky, orMesa, orStar } from './util.mjs';
 
 export const MENU_PATH = '/dispensaries/minnesota/bayport/menu/';
@@ -95,8 +96,8 @@ ${cats}
       canonical: 'https://mydealermn.com' + MENU_PATH,
       og: { 'og:title': title, 'og:description': description, 'og:type': 'website', 'og:url': 'https://mydealermn.com' + MENU_PATH },
       bodyClass: 'pg-menu',
-      crumbs: [['/', 'Home'], ['/dispensaries/', 'Dispensaries'], ['/dispensaries/minnesota/', 'Minnesota'], [st.path, st.name], [MENU_PATH, 'Menu']],
-      main,
+      crumbs: [],
+      main: crumbsIntoHero(main, [['/', 'Home'], ['/dispensaries/', 'Dispensaries'], ['/dispensaries/minnesota/', 'Minnesota'], [st.path, st.name], [MENU_PATH, 'Menu']]),
     }),
   }];
 }
