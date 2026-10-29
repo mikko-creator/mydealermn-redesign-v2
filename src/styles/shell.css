@@ -1,0 +1,281 @@
+/* shell.css - v2 "Midnight Mesa" chrome (SHELL lane): a dusk promo strip with four-point stars, the licence line on
+   night, a smoked-glass header with a gold hairline edge, glass tarot mega menus with arched image cards, the footer
+   as a night band with a mesa skyline rising over its top seam and parchment notice cards, the 21+ gate as a glass
+   tarot card with the dealer in an arched night portal, and a parchment breadcrumb bar with a fine double rule.
+   Pseudo-elements the components own (.band, .glass, .glass--tarot, .arch-frame, .kicker) are never touched here:
+   the header frosts on its OWN ::before (a backdrop-filter on the header would blind the megas' blur). */
+
+/* ---------- top bars ---------- */
+.topbar { position: relative; z-index: calc(var(--z-header) + 1); font-family: var(--font-ui); }
+/* promo: a slim dusk strip, gold type, stars as separators */
+.promo {
+  color: var(--gold-hi); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.035em;
+  background-color: #1b1630;
+  background-image:
+    radial-gradient(50% 240% at 50% 150%, rgba(200, 105, 63, 0.2), transparent 70%),
+    linear-gradient(90deg, #100e1b 0%, #2a2240 32%, #30264a 50%, #2a2240 68%, #100e1b 100%);
+  border-bottom: 1px solid rgba(226, 182, 90, 0.2);
+}
+.promo__inner { display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 38px; padding-block: 6px; }
+.promo__text { min-width: 0; overflow: hidden; }
+.promo__msg { display: inline-flex; align-items: center; gap: 12px; }
+.promo__star { width: 9px; height: 9px; color: var(--gold); }
+.promo__link {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; color: var(--gold);
+  font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+  border-bottom: 1px solid rgba(226, 182, 90, 0.55); padding-bottom: 1px;
+  transition: color var(--dur-1), border-color var(--dur-1);
+}
+.promo__link:hover { color: var(--gold-hi); border-color: var(--gold-hi); text-decoration: none; }
+.promo__link .ico { width: 14px; height: 14px; transition: transform var(--dur-1) var(--ease-out); }
+.promo__link:hover .ico { transform: translateX(3px); }
+/* the licence line on night */
+.utility { background: var(--ink); color: var(--muted-on-ink); font-size: 0.75rem; letter-spacing: 0.1em; border-bottom: 1px solid rgba(226, 182, 90, 0.12); }
+.utility__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 30px; }
+.utility__license { display: inline-flex; align-items: center; gap: 8px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; }
+.utility__star { width: 10px; height: 10px; color: var(--gold); opacity: 0.85; }
+.utility__pickup { display: inline-flex; align-items: center; gap: 6px; color: var(--text-on-ink); text-decoration: none; white-space: nowrap; letter-spacing: 0.06em; }
+.utility__pickup strong { color: var(--gold); font-weight: 600; }
+.utility__pickup .ico { width: 13px; height: 13px; color: var(--gold); }
+.utility__pickup:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- header: smoked glass frosted on its own ::before, a gold hairline edge on ::after ---------- */
+.site-header { position: sticky; top: 0; z-index: var(--z-header); color: var(--text-on-ink); }
+.site-header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-color: rgba(13, 12, 20, 0.9);
+  background-image: linear-gradient(180deg, rgba(61, 49, 96, 0.34), rgba(61, 49, 96, 0) 85%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.8);
+  transition: background-color var(--dur-2);
+}
+.site-header::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; pointer-events: none;
+  background: linear-gradient(90deg, rgba(226, 182, 90, 0.08) 0%, rgba(226, 182, 90, 0.6) 22%, rgba(246, 220, 156, 0.95) 50%, rgba(226, 182, 90, 0.6) 78%, rgba(226, 182, 90, 0.08) 100%);
+}
+.is-home .site-header { margin-bottom: calc(-1 * var(--header-h)); }
+.is-home .site-header:not(.is-scrolled):not(.has-open-mega)::before { background-color: rgba(13, 12, 20, 0.34); }
+.site-header.is-scrolled::before, .site-header.has-open-mega::before { background-color: rgba(13, 12, 20, 0.84); }
+.site-header__inner { display: flex; align-items: stretch; gap: clamp(12px, 2vw, 28px); height: var(--header-h); }
+
+/* brand: the dealer in a gold double ring, the wordmark in Cinzel */
+.brand { display: inline-flex; align-items: center; gap: 13px; text-decoration: none; color: inherit; flex: none; }
+.brand__logo {
+  width: 46px; height: 46px; border-radius: 50%; object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(226, 182, 90, 0.75), 0 0 0 4px rgba(13, 12, 20, 0.7), 0 0 0 5px rgba(226, 182, 90, 0.3), 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.brand:hover .brand__logo { transform: rotate(-8deg) scale(1.04); }
+.brand__words { display: grid; line-height: 1.05; }
+.brand__name { font-family: var(--font-display); font-weight: 700; font-size: 1.32rem; letter-spacing: 0.07em; color: var(--cream); }
+.brand__sub { font-family: var(--font-ui); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-top: 5px; }
+.site-header .brand { align-self: center; }
+
+/* ---------- main nav (desktop bar from 1024px): spaced Jost capitals, a flourish + star on hover / open / current ---------- */
+.nav { display: flex; align-items: stretch; flex: 1 1 auto; min-width: 0; }
+.nav__list { list-style: none; display: flex; align-items: stretch; gap: 2px; margin: 0 auto; padding: 0; }
+.nav__item { display: flex; align-items: center; }
+.nav__link {
+  position: relative; display: inline-flex; align-items: center; gap: 7px; height: 44px; padding: 0 14px; border-radius: var(--r-sm);
+  font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-on-ink); text-decoration: none; white-space: nowrap;
+  transition: color var(--dur-1);
+}
+.nav__link:hover, .nav__item.is-open > .nav__link { color: var(--gold-hi); text-decoration: none; }
+.nav__link[aria-current="page"] { color: var(--gold); }
+.nav__link::before { /* the flourish: a gold hairline drawn out from the centre */
+  content: ""; position: absolute; left: 12px; right: 12px; bottom: 3px; height: 1px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--gold) 28%, var(--gold-hi) 50%, var(--gold) 72%, transparent);
+  transform: scaleX(0); transition: transform var(--dur-2) var(--ease-out);
+}
+.nav__link::after { /* a four-point star riding the flourish */
+  content: ""; position: absolute; left: 50%; bottom: -1px; width: 9px; height: 9px; margin-left: -4.5px; pointer-events: none;
+  background: var(--gold-hi); -webkit-mask: var(--star4) center / contain no-repeat; mask: var(--star4) center / contain no-repeat;
+  transform: scale(0) rotate(-90deg); transition: transform var(--dur-2) var(--ease-out);
+}
+.nav__link:hover::before, .nav__link:focus-visible::before, .nav__item.is-open > .nav__link::before, .nav__link[aria-current="page"]::before { transform: scaleX(1); }
+.nav__link:hover::after, .nav__link:focus-visible::after, .nav__item.is-open > .nav__link::after, .nav__link[aria-current="page"]::after { transform: scale(1) rotate(0deg); }
+.nav__link .ico--chev { width: 13px; height: 13px; color: var(--gold); transition: transform var(--dur-2) var(--ease-out); }
+.nav__item.is-open .ico--chev { transform: rotate(180deg); }
+.nav__link .ico--ext, .mega .ico--ext { width: 12px; height: 12px; opacity: 0.75; }
+.nav__drawer-head, .nav__drawer-foot, .nav__close { display: none; }
+.header-cta { align-self: center; flex: none; min-height: 44px; padding: 0 20px; }
+.header-cta .ico { width: 14px; height: 14px; }
+.nav-toggle { display: none; }
+.nav-scrim[hidden] { display: none; }
+/* 1024-1279: the same bar, tighter, so all five items, the wordmark and the menu button fit */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .site-header__inner { gap: 14px; }
+  .brand { gap: 10px; }
+  .brand__name { font-size: 1.12rem; letter-spacing: 0.05em; }
+  .brand__sub { letter-spacing: 0.2em; }
+  .nav__link { padding: 0 9px; letter-spacing: 0.12em; gap: 5px; }
+  .nav__link::before { left: 8px; right: 8px; }
+  .header-cta { padding: 0 14px; letter-spacing: 0.07em; }
+}
+
+/* ---------- mega menus: glass tarot panels (.glass.glass--tarot: inner rule + corner stars come from components) ---------- */
+.mega {
+  position: absolute; left: 0; right: 0; top: 100%; padding-top: 12px; z-index: var(--z-mega);
+  visibility: hidden; opacity: 0; transform: translateY(-8px);
+  transition: opacity var(--dur-2) var(--ease-out), transform var(--dur-2) var(--ease-out), visibility 0s linear var(--dur-2);
+}
+.mega::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 26px; } /* hover gap bridge */
+.nav__item.is-open > .mega { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
+.mega__panel {
+  --glass-r: var(--r-lg);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 250px); gap: clamp(24px, 3vw, 52px);
+  padding: clamp(28px, 2.6vw, 40px) clamp(30px, 3.2vw, 52px);
+  background-color: rgba(17, 14, 28, 0.8);
+  background-image:
+    radial-gradient(48% 90% at 0% 0%, rgba(61, 49, 96, 0.55), transparent 72%),
+    radial-gradient(40% 80% at 100% 100%, rgba(200, 105, 63, 0.16), transparent 72%);
+  -webkit-backdrop-filter: blur(26px) saturate(160%); backdrop-filter: blur(26px) saturate(160%);
+  box-shadow: inset 0 1px 0 var(--glass-ink-hi), 0 44px 90px -34px rgba(0, 0, 0, 0.85);
+}
+.mega__grid { display: grid; gap: clamp(18px, 2.4vw, 40px); grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); align-content: start; }
+.mega__grid--4 { --cols: 4; }
+.mega__grid--3 { --cols: 3; }
+.mega__grid--2 { --cols: 2; }
+.mega__h {
+  font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgba(226, 182, 90, 0.5), rgba(226, 182, 90, 0.04)) 1;
+}
+.mega__links { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; }
+.mega__links a {
+  position: relative; display: inline-flex; align-items: center; gap: 7px; padding: 6px 0; color: var(--text-on-ink); text-decoration: none;
+  font-size: 0.97rem; line-height: 1.3; transition: color var(--dur-1);
+}
+.mega__links a > span { transition: transform var(--dur-2) var(--ease-out); }
+.mega__star {
+  position: absolute; left: -15px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; color: var(--gold);
+  opacity: 0; transform: scale(0) rotate(-90deg); transition: transform var(--dur-2) var(--ease-out), opacity var(--dur-1);
+}
+.mega__links a:hover, .mega__links a:focus-visible { color: var(--gold-hi); }
+.mega__links a:hover > span, .mega__links a:focus-visible > span { transform: translateX(5px); }
+.mega__links a:hover .mega__star, .mega__links a:focus-visible .mega__star, .mega__links a[aria-current="page"] .mega__star { opacity: 1; transform: none; }
+.mega__links a[aria-current="page"] { color: var(--gold); }
+.mega__note { margin-top: 10px; font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 1.08rem; line-height: 1.25; color: var(--muted-on-ink); }
+/* the image card: an arched portal (.arch-frame > .arch), its kicker between stars, a Cormorant line */
+.mega__card { display: grid; align-content: start; justify-items: center; gap: 4px; text-align: center; color: var(--text-on-ink); text-decoration: none; }
+.mega__arch { --arch-pad: 6px; display: block; width: 100%; transition: border-color var(--dur-2); }
+.mega__media { display: block; aspect-ratio: 1 / 0.96; background-color: var(--ink); }
+.mega__media img, .mega__media .img-slot { transition: transform 1.2s var(--ease-out); }
+.mega__card:hover .mega__media img, .mega__card:focus-visible .mega__media img { transform: scale(1.06); }
+.mega__card:hover .mega__arch { --arch-line: var(--gold-hi); }
+.mega__media--sketch { background: radial-gradient(70% 60% at 50% 100%, rgba(200, 105, 63, 0.25), transparent 70%), linear-gradient(180deg, #0d0c14, #2a2240); }
+.mega__media--sketch > img { object-fit: contain; padding: 16px 14px 6px; }
+.mega__card-k {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 12px;
+  font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+}
+.mega__k-star { width: 8px; height: 8px; }
+.mega__card-t { font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 1.14rem; line-height: 1.25; color: var(--text-on-ink); max-width: 24ch; }
+
+/* ---------- footer: night band, a mesa skyline rising over its top seam (front plane), parchment notices ---------- */
+.site-footer.band--night {
+  z-index: 2; /* above an ordinary last band, so the skyline crosses the seam; a .band--over last band stays on top */
+  padding-block: clamp(76px, 8.5vw, 120px) 28px; font-size: 0.95rem;
+  /* the top of the footer is the colour of the near ridge, so the skyline and the band read as one ground */
+  background-image:
+    radial-gradient(60% 46% at 50% 108%, rgba(61, 49, 96, 0.5), transparent 72%),
+    radial-gradient(40% 40% at 96% 100%, rgba(200, 105, 63, 0.13), transparent 72%),
+    linear-gradient(180deg, #0d0c14 0%, #100e1a 40%, #15121f 100%);
+}
+.footer__horizon { position: absolute; left: 0; right: 0; bottom: calc(100% - 1px); height: clamp(56px, 8vw, 116px); pointer-events: none; --mesa-far: #251e3a; --mesa-near: #0d0c14; }
+.footer__mesa { height: 100%; }
+.footer__sky { position: absolute; top: clamp(18px, 2vw, 28px); right: var(--gutter); width: clamp(200px, 17vw, 260px); pointer-events: none; }
+.footer__con { display: block; width: 100%; height: auto; color: rgba(246, 220, 156, 0.42); }
+.footer__top { display: grid; grid-template-columns: minmax(260px, 1.1fr) 2.4fr; gap: clamp(32px, 5vw, 80px); padding-bottom: clamp(32px, 4vw, 48px); border-bottom: 1px solid var(--line-ink); }
+.brand--footer .brand__logo { width: 58px; height: 58px; }
+.brand--footer .brand__name { font-size: 1.6rem; }
+.footer__brand > * + * { margin-top: 16px; }
+.footer__blurb { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 500; line-height: 1.4; color: rgba(243, 234, 216, 0.86); max-width: 34ch; }
+.footer__addr { color: var(--text-on-ink); }
+.footer__tel a { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-weight: 600; letter-spacing: 0.04em; text-decoration: none; }
+.footer__tel a:hover { color: var(--gold-hi); text-decoration: underline; }
+.footer__socials { display: flex; gap: 10px; }
+.footer__social {
+  display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: var(--gold-hi);
+  border: 1px solid rgba(226, 182, 90, 0.4); box-shadow: inset 0 0 0 3px rgba(13, 12, 20, 0.9), inset 0 0 0 4px rgba(226, 182, 90, 0.16);
+  transition: background-color var(--dur-1), color var(--dur-1), transform var(--dur-1), border-color var(--dur-1);
+}
+.footer__social:hover { background: var(--gold); color: var(--ink); border-color: var(--gold-hi); transform: translateY(-2px); box-shadow: none; }
+.footer__social .ico { width: 18px; height: 18px; }
+.footer__bbb { display: inline-block; }
+.footer__bbb img { height: 28px; width: auto; }
+.footer__cols { display: grid; grid-template-columns: 1.05fr 1fr 1fr 1.3fr; gap: clamp(20px, 3vw, 40px); }
+.footer__h {
+  display: flex; align-items: center; gap: 9px; margin-bottom: 14px;
+  font-family: var(--font-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+}
+.footer__h::before { content: ""; flex: none; width: 8px; height: 8px; background: currentColor; -webkit-mask: var(--star4) center / contain no-repeat; mask: var(--star4) center / contain no-repeat; }
+.footer__links { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.footer__links a { color: var(--text-on-ink); text-decoration: none; overflow-wrap: break-word; transition: color var(--dur-1); }
+.footer__links a:hover { color: var(--gold-hi); text-decoration: underline; text-decoration-color: rgba(226, 182, 90, 0.7); }
+.footer__col--primary .footer__links { gap: 4px; }
+.footer__col--primary .footer__links a { white-space: nowrap; font-family: var(--font-display); font-size: clamp(1.15rem, 0.9rem + 0.7vw, 1.5rem); font-weight: 600; line-height: 1.3; letter-spacing: 0.06em; }
+.footer__col--primary .footer__links a:hover { text-decoration: none; }
+.footer__mid { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: clamp(24px, 4vw, 64px); align-items: start; padding-block: clamp(28px, 4vw, 44px); border-bottom: 1px solid var(--line-ink); }
+/* parchment notice cards: the licences and the warning, a fine double rule inside the edge */
+.footer__licenses, .footer__warning {
+  position: relative; color: var(--text-on-paper);
+  background-color: var(--paper);
+  background-image: radial-gradient(130% 120% at 50% 40%, transparent 55%, rgba(122, 87, 20, 0.16) 100%);
+  border: 1px solid rgba(122, 87, 20, 0.5); border-radius: var(--r-sm);
+  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px rgba(122, 87, 20, 0.36), 0 22px 44px -26px rgba(0, 0, 0, 0.9);
+}
+.footer__licenses { padding: 22px 24px 20px; }
+.footer__licenses .footer__h { color: var(--gold-ink); }
+.footer__licenses p { color: var(--muted-on-paper); max-width: 52ch; }
+.footer__licbar { margin-top: 10px; font-family: var(--font-ui); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-ink) !important; }
+.footer__warning { margin-top: 30px; padding: 20px 26px; color: #3a3226; font-size: 0.875rem; line-height: 1.65; }
+.footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 24px; font-family: var(--font-ui); font-size: 0.8125rem; letter-spacing: 0.04em; color: var(--muted-on-ink); }
+.footer__legal a { color: var(--gold); }
+.footer__legal a:hover { color: var(--gold-hi); }
+
+/* ---------- 21+ gate: a glass tarot card; the dealer in an arched night portal with a crescent moon and stars ---------- */
+.age-gate {
+  position: fixed; inset: 0; z-index: var(--z-gate); display: grid; place-items: center; padding: 20px; overflow-y: auto;
+  background: radial-gradient(70% 60% at 50% 35%, rgba(61, 49, 96, 0.5), rgba(13, 12, 20, 0.84) 75%);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.age-gate[hidden] { display: none; }
+.age-gate__card {
+  --glass-r: var(--r-lg);
+  width: min(100%, 440px); margin-top: 70px; padding: 0 34px 32px; text-align: center; display: grid; justify-items: center; gap: 12px;
+  background-color: rgba(17, 14, 28, 0.8);
+}
+.age-gate__portal { --arch-pad: 6px; width: 164px; margin-top: -70px; margin-bottom: 8px; background: rgba(13, 12, 20, 0.92); box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.8); }
+.age-gate__arch {
+  height: 184px;
+  background-color: var(--ink);
+  background-image: radial-gradient(80% 50% at 50% 104%, rgba(200, 105, 63, 0.6), transparent 72%), linear-gradient(180deg, #0d0c14 0%, #1c172e 45%, #3d3160 100%);
+}
+.age-gate__sky { position: absolute; inset: 0; background-image: var(--stars-b), var(--stars-a); background-size: 300px 300px, 130px 130px; background-position: -40px -20px, 0 0; }
+.age-gate__moon { position: absolute; top: 26px; left: 30px; width: 34px; height: 34px; rotate: -24deg; filter: drop-shadow(0 0 10px rgba(246, 220, 156, 0.55)); }
+.age-gate__spark { position: absolute; color: var(--gold-hi); }
+.age-gate__spark--a { top: 22px; right: 36px; width: 12px; height: 12px; }
+.age-gate__spark--b { top: 66px; right: 22px; width: 8px; height: 8px; opacity: 0.8; }
+.age-gate__spark--c { top: 70px; left: 20px; width: 10px; height: 10px; opacity: 0.7; color: var(--gold); }
+.age-gate__arch > .age-gate__logo { position: absolute; left: 50%; bottom: -1px; width: 148px; height: auto; translate: -50% 0; border-radius: 0; object-fit: contain; filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.6)); }
+.age-gate__card .kicker { --band-accent: var(--gold); }
+.age-gate__q { font-size: clamp(1.75rem, 1.35rem + 1.6vw, 2.35rem); letter-spacing: 0.04em; color: var(--cream); }
+.age-gate__d { font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: 1.22rem; line-height: 1.35; color: rgba(243, 234, 216, 0.88); }
+.age-gate__actions { justify-content: center; margin-top: 6px; }
+.age-gate__actions .btn { min-width: 116px; }
+.age-gate__actions .btn--ghost { color: var(--text-on-ink); border-color: rgba(226, 182, 90, 0.55); }
+.age-gate__actions .btn--ghost:hover { border-color: var(--gold); background: rgba(226, 182, 90, 0.1); }
+.age-gate__no { color: var(--gold-hi); font-size: 0.95rem; }
+html.gate-open, html.nav-open { overflow: hidden; }
+
+/* ---------- breadcrumb bar: parchment with a fine double rule (star separators come from components.css) ---------- */
+.crumbs-bar {
+  padding-block: 12px;
+  background-color: var(--paper);
+  background-image: linear-gradient(90deg, rgba(122, 87, 20, 0.08), transparent 24%, transparent 76%, rgba(122, 87, 20, 0.08));
+  border-bottom: 3px double rgba(122, 87, 20, 0.42);
+}
+.crumbs-bar .crumbs a { color: var(--pine); }
+.crumbs-bar .crumbs a:hover { color: var(--clay-2); }

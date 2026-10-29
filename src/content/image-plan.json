@@ -1,0 +1,182 @@
+{
+  "about": "Generated imagery for the My Dealer (mydealermn.com) redesign pitch, version 2, design 'Midnight Mesa' (glassmorphism with a mystical western look). Run: node tools/fal-gen.mjs --plan src/content/image-plan.json --key-file <path outside the project>. Every result is AI-generated and illustrative: never a picture of My Dealer's store, staff, customers or products. g- ids are editorial still lifes at night (weathered wood, brass, terracotta, turquoise stones, dried sage, warm lantern light, an indigo ground with star-like bokeh), subject right of centre with calm dark space on the left for hero text; g-smoke is kept from version 1. s- ids are wordless black-ink engravings with mirror symmetry and celestial accents (crescent moon, four-point stars, sun rays) on pure white; the three tall ones are generated at 3:4 and cropped to 4:5 after a paper clean-up (tmp/img/sketch-post.py), and templates multiply them onto parchment and recolour them to gold lines on night.",
+  "defaults": {
+    "model": "fal-ai/flux-pro/v1.1-ultra",
+    "style": "no people, no hands, no faces, no text, no lettering, no numbers, no labels, no logos, no brand marks, all surfaces blank and unmarked",
+    "input": {
+      "aspect_ratio": "3:2",
+      "output_format": "jpeg",
+      "safety_tolerance": "5"
+    },
+    "cutoutModel": "fal-ai/birefnet/v2",
+    "cutoutInput": {
+      "model": "General Use (Heavy)",
+      "operating_resolution": "2048x2048",
+      "output_format": "png",
+      "refine_foreground": true
+    }
+  },
+  "images": [
+    {
+      "id": "g-bud-macro",
+      "file": "assets/generated/g-bud-macro.jpg",
+      "aspect": "16:9",
+      "role": "home flower spotlight, /flower hero, source still for the smoke loop",
+      "usedFor": [
+        "home flower spotlight",
+        "/flower hero"
+      ],
+      "alt": "Macro photograph of a frosty cured cannabis flower bud with amber pistils on dark weathered wood beside a small turquoise stone, rim-lit in warm light against an indigo night background with soft star-like bokeh",
+      "prompt": "editorial macro still life photograph at night of a single dense cured cannabis flower bud resting on a weathered dark wooden board, frosty glistening trichomes and thin amber pistils in crisp focus, muted sage green and olive tones, warm golden lantern light rim-lighting the bud from behind and the side, a small turquoise stone softly blurred near the bud, a deep indigo and violet night background filled with soft out-of-focus star-like bokeh points, the bud placed right of centre with calm dark indigo negative space on the left, shallow depth of field, quiet mystical western mood",
+      "input": {
+        "aspect_ratio": "16:9"
+      }
+    },
+    {
+      "id": "g-deli-jars",
+      "file": "assets/generated/g-deli-jars.jpg",
+      "aspect": "3:2",
+      "role": "home flower, /flower, deals",
+      "usedFor": [
+        "home flower",
+        "/flower",
+        "deals"
+      ],
+      "alt": "Three open clear glass jars of cured cannabis flower on a weathered dark wooden plank between two turquoise stones, with a candle and dried sage in the background against an indigo night background with soft bokeh",
+      "prompt": "editorial still life photograph at night of three small clear glass deli jars with plain glass lids standing in a row on a weathered dark wooden plank, each jar holding a few cured cannabis flower buds, completely blank smooth glass with no labels and no stickers, two small polished turquoise stones beside the jars, warm golden lantern light from the left catching the glass rims, a deep indigo and violet night background filled with soft out-of-focus star-like bokeh points, the jars grouped slightly right of centre with calm dark space on the left, muted palette of indigo, warm brown, brass gold and sage, calm and understated",
+      "input": {
+        "aspect_ratio": "3:2"
+      }
+    },
+    {
+      "id": "g-prerolls",
+      "file": "assets/generated/g-prerolls.jpg",
+      "aspect": "3:2",
+      "role": "/pre-rolls, Explore mega card",
+      "usedFor": [
+        "/pre-rolls",
+        "Explore mega"
+      ],
+      "alt": "Three unlit pre-rolls on a hammered brass plate, their open ends packed with ground flower, beside loose flower crumbs on dark wood, with a lantern glowing in the background",
+      "prompt": "editorial still life photograph at night of three unlit cone-shaped pre-rolled joints lying in a neat parallel row on a small round hammered brass tray, each joint neatly filled, tapering from a wide end closed with a small twisted paper tip down to a narrow end with a short white rolled card filter, plain unbleached natural paper with no print, a few loose crumbs of green cannabis flower and a small sprig of dried desert sage beside the tray, the tray on weathered dark wood, unlit with no ash, no flame and no smoke, warm golden lantern light from the left, a deep indigo and violet night background filled with soft out-of-focus star-like bokeh points, the tray slightly right of centre with calm dark space on the left, muted palette of cream paper, brass, indigo and sage",
+      "input": {
+        "aspect_ratio": "3:2"
+      }
+    },
+    {
+      "id": "g-edibles",
+      "file": "assets/generated/g-edibles.jpg",
+      "aspect": "3:2",
+      "role": "/edibles",
+      "usedFor": [
+        "/edibles"
+      ],
+      "alt": "Square amber gummies in a small terracotta dish on a dark wooden round beside two turquoise stones and a sprig of dried herbs, with a lantern glowing in the background against an indigo night background",
+      "prompt": "editorial still life photograph at night of a small shallow terracotta clay dish holding six plain square gummies with perfectly smooth, clean, uncoated satin surfaces and softly rounded edges, a deep muted dark honey amber colour, softly translucent like amber resin, no sugar crystals and no granules on them or anywhere around them, the dish on a weathered dark wooden board beside two small turquoise stones and a small sprig of dried desert sage, warm golden lantern light from the left, a deep indigo night background with a few faint soft star-like bokeh points, the dish slightly right of centre with calm dark space on the left, restrained muted palette of amber, terracotta, indigo and sage, quiet minimal apothecary mood",
+      "input": {
+        "aspect_ratio": "3:2"
+      }
+    },
+    {
+      "id": "g-vape",
+      "file": "assets/generated/g-vape.jpg",
+      "aspect": "3:2",
+      "role": "home vape spotlight, /vapes",
+      "usedFor": [
+        "home vape spotlight",
+        "/vapes"
+      ],
+      "alt": "An unbranded matte black all-in-one vape device with a small amber oil window, lying on dark tooled leather beside a brass bowl and two turquoise stones, with a lantern glowing behind",
+      "prompt": "editorial product still life photograph at night of a single slim matte black all-in-one vape pen device with a small glass window showing golden oil, lying diagonally on a piece of dark brown tooled leather with a subtle floral scroll pattern, the leather on weathered dark wood, a small hammered brass dish and two turquoise stones nearby, completely blank unbranded hardware with no text, no logo and no markings, no vapour, warm golden lantern rim light along its edges, a deep indigo and violet night background filled with soft out-of-focus star-like bokeh points, the device slightly right of centre with calm dark space on the left, calm and understated",
+      "input": {
+        "aspect_ratio": "3:2"
+      }
+    },
+    {
+      "id": "g-beverage",
+      "file": "assets/generated/g-beverage.jpg",
+      "aspect": "3:2",
+      "role": "/beverages",
+      "usedFor": [
+        "/beverages"
+      ],
+      "alt": "Two blank unlabelled matte cans, one terracotta and one cream, beaded with condensation on weathered dark wood beside a sprig of dried sage, against an indigo night background with soft bokeh",
+      "prompt": "editorial product still life photograph at night of three blank unlabelled slim matte drink cans in muted turquoise, terracotta clay and warm cream, beaded with fine cold condensation droplets, standing on a weathered dark wooden plank beside a small sprig of dried desert sage, completely blank cans with no text, no logo and no print, warm golden lantern light from the left, a deep indigo and violet night background filled with soft out-of-focus star-like bokeh points, the cans grouped slightly right of centre with calm dark space on the left, calm understated mood",
+      "input": {
+        "aspect_ratio": "3:2"
+      }
+    },
+    {
+      "id": "g-smoke",
+      "file": "assets/generated/g-smoke.jpg",
+      "aspect": "16:9",
+      "role": "night grounds, mega cards (texture)",
+      "usedFor": [
+        "night grounds",
+        "mega cards"
+      ],
+      "alt": "Soft wisps of pale smoke curling across a near-black background with a faint warm glow",
+      "prompt": "abstract photograph of soft wisps of pale grey smoke curling slowly through darkness, delicate fine smoke texture, near-black background, a faint warm gold glow at the right edge and a hint of muted sage green, minimal, lots of empty black space, no objects",
+      "input": {
+        "aspect_ratio": "16:9"
+      }
+    },
+    {
+      "id": "s-leaf",
+      "file": "assets/generated/s-leaf.jpg",
+      "aspect": "4:5",
+      "role": "sketch layer",
+      "usedFor": [
+        "sketch layer"
+      ],
+      "alt": "Engraving-style ink drawing of a cannabis fan leaf with a crescent moon, small stars and sun rays",
+      "prompt": "vintage steel-engraving style illustration in black ink of a single cannabis fan leaf: one palmate leaf with seven long narrow serrated leaflets that all radiate from one single point at the top of a short stalk like the fingers of an open hand, the longest leaflet in the middle pointing straight up and the leaflets getting shorter towards the sides, fine parallel hatching and delicate cross-hatching, mirror-symmetrical about a vertical centre axis, a small crescent moon above it, a few small four-point stars around it and fine straight sun rays fanning out behind it, black ink line art only, isolated and centred on a pure white background with wide white margins, no frame, no card border, no title banner, no caption, no border lettering, pure white background",
+      "input": {
+        "aspect_ratio": "3:4"
+      }
+    },
+    {
+      "id": "s-bud",
+      "file": "assets/generated/s-bud.jpg",
+      "aspect": "4:5",
+      "role": "sketch layer",
+      "usedFor": [
+        "sketch layer"
+      ],
+      "alt": "Engraving-style ink drawing of a cannabis flower bud on its stem among fan leaves, with a crescent moon, small stars and sun rays",
+      "prompt": "vintage steel-engraving style illustration in black ink of a single harvested cannabis flower bud, a dense fluffy irregular cola made of many small rounded calyxes, covered in fine curling hair-like pistils and tiny trichome dots, a few small narrow serrated sugar leaves tucked between the calyxes, on a short trimmed stem, with one large palmate cannabis fan leaf of seven radiating serrated leaflets spread out behind it, fine parallel hatching and cross-hatching, mirror-symmetrical about a vertical centre axis, a small crescent moon above it, a few small four-point stars around it and fine straight sun rays fanning out behind it, black ink line art only, isolated and centred on a pure white background with wide white margins, no frame, no card border, no title banner, no caption, no border lettering, pure white background",
+      "input": {
+        "aspect_ratio": "3:4"
+      }
+    },
+    {
+      "id": "s-jar",
+      "file": "assets/generated/s-jar.jpg",
+      "aspect": "4:5",
+      "role": "sketch layer",
+      "usedFor": [
+        "sketch layer"
+      ],
+      "alt": "Engraving-style ink drawing of an empty apothecary jar with a domed lid and a knob, with a crescent moon, small four-point stars and sun rays",
+      "prompt": "vintage steel-engraving style illustration in black ink of a single antique glass apothecary jar with a domed lid and a round knob on top, an empty blank jar with no label, drawn with fine parallel hatching and cross-hatching, mirror-symmetrical about a vertical centre axis, a small crescent moon above it, a few small four-point stars around it and fine straight sun rays fanning out behind it, black ink line art only, isolated and centred on a pure white background with wide white margins, no frame, no card border, no title banner, no caption, no border lettering, pure white background",
+      "input": {
+        "aspect_ratio": "3:4"
+      }
+    },
+    {
+      "id": "s-hat",
+      "file": "assets/generated/s-hat.jpg",
+      "aspect": "1:1",
+      "role": "sketch layer, 404",
+      "usedFor": [
+        "sketch layer",
+        "404"
+      ],
+      "alt": "Engraving-style ink drawing of a fedora hat with folded sunglasses resting on its brim, with sun rays behind and a crescent moon and stars on the hat band (no person)",
+      "prompt": "vintage steel-engraving style illustration in black ink of an empty classic fedora hat seen from a front three-quarter view, a teardrop crown with one long centre crease, a medium snap brim and a dark hat band, resting on its own with nobody wearing it, a pair of folded aviator sunglasses lying in front of the brim, fine parallel hatching and cross-hatching, balanced symmetrical composition, a small crescent moon above it, a few small four-point stars around it and fine straight sun rays fanning out behind it, black ink line art only, isolated and centred on a pure white background with wide white margins, no frame, no card border, no title banner, no caption, no border lettering, pure white background",
+      "input": {
+        "aspect_ratio": "1:1"
+      }
+    }
+  ]
+}
